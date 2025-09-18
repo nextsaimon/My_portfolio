@@ -15,7 +15,7 @@ export const metadata = {
     title: "Saimon",
     description:
       "Welcome to Saimon's portfolio! Discover my skills in web development, design, and programming.",
-    url: "https://nextsaimon.vercel.app/",
+    url: "https://nextsaimon.com/",
     siteName: "Saimon's Portfolio",
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata = {
     icon: "/favicon.ico",
   },
   other: {
-    "google-site-verification": "3P2pzOaMiJRrHdOKR7EbqByO3g1OlCgpzsrcHxu0mM8",
+    "google-site-verification": "cvta9GHpsvTp2V2Vt8uFH3zrccVxxKvDzwI68IesufE",
   },
 };
 
