@@ -7,5 +7,12 @@
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
+  <!-- Project page -->
+  <url>
+    <loc>https://www.nextsaimon.com/project</loc>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>
+
 </urlset>
