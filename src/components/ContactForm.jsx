@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
+import Script from "next/script";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,6 +36,8 @@ export default function ContactForm() {
     }
 
     try {
+      console.log("token", turnstileToken);
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -155,11 +158,11 @@ export default function ContactForm() {
                 data-sitekey="0x4AAAAAAB2JuTkox2OW9Lpg" // <--  Site Key
                 data-callback={(token) => setTurnstileToken(token)}
               ></div>
-              <script
+              <Script
                 src="https://challenges.cloudflare.com/turnstile/v0/api.js"
                 async
                 defer
-              ></script>
+              ></Script>
 
               <div className="_form-actions">
                 <button
