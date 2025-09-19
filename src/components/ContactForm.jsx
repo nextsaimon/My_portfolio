@@ -8,7 +8,6 @@ export default function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -153,7 +152,7 @@ export default function ContactForm() {
               {/* Cloudflare Turnstile */}
               <div
                 className="cf-turnstile"
-                data-sitekey={siteKey} // <--  Site Key 
+                data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} // <--  Site Key
                 data-callback={(token) => setTurnstileToken(token)}
               ></div>
               <script
