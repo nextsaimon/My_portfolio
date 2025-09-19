@@ -8,6 +8,7 @@ export default function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -16,48 +17,50 @@ export default function ContactForm() {
     message: "",
   });
 
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    if (!turnstileToken) {
+      setErrorMessage("Please verify you are human!");
+      setShowError(true);
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSeVhXNRJ_TcgYZt5MabruKA5wNClBxqmbIhrxNECLUK0_Kxvw/formResponse`;
-
-      const params = new URLSearchParams({
-        "entry.1113798141": formData.name,
-        "entry.338671399": formData.email,
-        "entry.1228627290": formData.subject,
-        "entry.86593897": formData.message,
-      });
-
-      await fetch(`${formUrl}?${params.toString()}`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formData, token: turnstileToken }),
       });
 
-      // Always assume success due to `no-cors`
+      const result = await res.json();
+
+      if (!res.ok) throw new Error(result.message || "Submission failed");
+
       setShowSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
+      setTurnstileToken("");
       setIsModalOpen(false);
-    } catch (error) {
-      setErrorMessage("Oops! Something went wrong. Please try again.");
+    } catch (err) {
+      setErrorMessage(err.message);
       setShowError(true);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleInputChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
   return (
     <>
+      {/* Open Form Button */}
       <AnimatedContent
         distance={150}
         direction="horizontal"
@@ -146,6 +149,18 @@ export default function ContactForm() {
                   rows="4"
                 />
               </div>
+
+              {/* Cloudflare Turnstile */}
+              <div
+                className="cf-turnstile"
+                data-sitekey={siteKey} // <--  Site Key 
+                data-callback={(token) => setTurnstileToken(token)}
+              ></div>
+              <script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                async
+                defer
+              ></script>
 
               <div className="_form-actions">
                 <button
