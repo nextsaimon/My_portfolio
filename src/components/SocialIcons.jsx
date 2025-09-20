@@ -1,33 +1,36 @@
 import { BsGithub } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { AiOutlineInstagram } from "react-icons/ai";
+import Link from "next/link";
+
 import React from "react";
-import { FaFacebook } from "react-icons/fa";
 const SocialIcons = () => {
   return (
     <div id="socials-container">
-      <i
+      <Link
         className="fab fa-facebook icon"
-        onClick={() =>
-          window.open("https://www.facebook.com/next.saimon", "_blank")
-        }
+        href={process.env.NEXT_PUBLIC_FACEBOOK}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <BsFacebook />
-      </i>
-      <i
+      </Link>
+      <Link
         className="fab fa-instagram icon"
-        onClick={() =>
-          window.open("https://www.instagram.com/next.saimon/", "_blank")
-        }
+        href={process.env.NEXT_PUBLIC_INSTAGRAM}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <AiOutlineInstagram />
-      </i>
-      <i
+      </Link>
+      <Link
         className="fab fa-github icon"
-        onClick={() => window.open("https://github.com/nextSaimon", "_blank")}
+        href={process.env.NEXT_PUBLIC_GITHUB}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <BsGithub />
-      </i>
+      </Link>
     </div>
   );
 };

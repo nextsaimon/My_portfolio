@@ -53,8 +53,8 @@ const Contact = () => {
               <MdEmail />
             </i>
             <p>
-              <Link href="mailto:saimonss5432@gmail.com">
-                saimonss5432@gmail.com
+              <Link href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}>
+                {process.env.NEXT_PUBLIC_EMAIL}
               </Link>
             </p>
           </div>
@@ -84,7 +84,7 @@ const Contact = () => {
             </i>
             <p>
               <Link
-                href="https://www.facebook.com/next.saimon"
+                href={process.env.NEXT_PUBLIC_FACEBOOK}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -97,7 +97,7 @@ const Contact = () => {
             </i>
             <p>
               <Link
-                href="https://www.instagram.com/next.saimon/"
+                href={process.env.NEXT_PUBLIC_INSTAGRAM}
                 target="_blank"
                 rel="noopener noreferrer"
               >
