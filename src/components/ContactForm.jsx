@@ -156,7 +156,10 @@ export default function ContactForm() {
               <div
                 className="cf-turnstile"
                 data-sitekey="0x4AAAAAAB2JuTkox2OW9Lpg" // <--  Site Key
-                data-callback={(token) => setTurnstileToken(token)}
+                data-callback={(token) => {
+                  console.log("token", token);
+                  setTurnstileToken(token);
+                }}
               ></div>
               <Script
                 src="https://challenges.cloudflare.com/turnstile/v0/api.js"
