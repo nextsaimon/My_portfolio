@@ -6,6 +6,7 @@ const turnstile = Turnstile(process.env.TURNSTILE_SECRET_KEY);
 export async function POST(req) {
   const { formData, token } = await req.json();
 
+  // Check Turnstile token
   if (!token) {
     return NextResponse.json(
       { message: "No Turnstile token provided" },
@@ -13,9 +14,7 @@ export async function POST(req) {
     );
   }
 
-  // ✅ Verify token using cf-turnstile
   const verification = await turnstile(token);
-
   if (!verification.success) {
     return NextResponse.json(
       { message: "Human verification failed!" },
@@ -23,6 +22,21 @@ export async function POST(req) {
     );
   }
 
+  // Validate form data
+  if (
+    !formData ||
+    !formData.name?.trim() ||
+    !formData.email?.trim() ||
+    !formData.subject?.trim() ||
+    !formData.message?.trim()
+  ) {
+    return NextResponse.json(
+      { message: "All form fields are required!" },
+      { status: 400 }
+    );
+  }
+
+  // Submit to Google Form
   try {
     const formUrl = process.env.GOOGLE_SUBMIT_FORM_URL;
 

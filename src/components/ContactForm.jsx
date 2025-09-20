@@ -80,7 +80,10 @@ export default function ContactForm() {
 
       {isModalOpen && (
         <div className="_modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="_modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="_modal-content overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="_modal-header">
               <div>
                 <h2>Contact Me</h2>
