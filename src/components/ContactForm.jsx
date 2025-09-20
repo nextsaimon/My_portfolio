@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
-import Turnstile from "react-turnstile"; // <-- Import
-// আর Script import এর দরকার হবে না
+import Turnstile from "react-turnstile";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -150,9 +149,8 @@ export default function ContactForm() {
 
               {/* Cloudflare Turnstile */}
               <Turnstile
-                sitekey="0x4AAAAAAB2JuTkox2OW9Lpg" 
+                sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                 onVerify={(token) => {
-                  console.log("Turnstile token:", token);
                   setTurnstileToken(token);
                 }}
                 onExpire={() => setTurnstileToken("")}
@@ -180,7 +178,45 @@ export default function ContactForm() {
         </div>
       )}
 
-      {/* success + error modal code same as before */}
+      {/* Success Modal */}
+      {showSuccess && (
+        <div className="_modal-overlay" onClick={() => setShowSuccess(false)}>
+          <div className="_success-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="_success-icon">✓</div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you! I’ll reply as soon as I can.</p>
+            <button
+              className="_btn-primary"
+              onClick={() => setShowSuccess(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Error Modal */}
+      {showError && (
+        <div className="_modal-overlay" onClick={() => setShowError(false)}>
+          <div
+            className="_success-modal"
+            onClick={(e) => e.stopPropagation()}
+            style={{ border: "1px solid #dc2626" }}
+          >
+            <div className="_success-icon" style={{ background: "#dc2626" }}>
+              !
+            </div>
+            <h3>Submission Failed</h3>
+            <p>{errorMessage}</p>
+            <button
+              className="_btn-primary"
+              onClick={() => setShowError(false)}
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
