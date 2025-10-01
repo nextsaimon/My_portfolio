@@ -4,6 +4,7 @@ import "@/styles/css/contact-form.css";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { Providers } from "./providers";
 
 
 export const metadata = {
@@ -51,26 +52,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Saimon",
-              url: "https://nextsaimon.com",
-              image: "https://nextsaimon.com/favicon.ico",
-              sameAs: [
-                "https://www.facebook.com/nextsaimon",
-                "https://www.instagram.com/nextsaimon/",
-                "https://github.com/nextsaimon/",
-              ],
-            }),
-          }}
-        />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                name: "Saimon",
+                url: "https://nextsaimon.com",
+                image: "https://nextsaimon.com/favicon.ico",
+                sameAs: [
+                  "https://www.facebook.com/nextsaimon",
+                  "https://www.instagram.com/nextsaimon/",
+                  "https://github.com/nextsaimon/",
+                ],
+              }),
+            }}
+          />
+        </Providers>
       </body>
     </html>
   );
