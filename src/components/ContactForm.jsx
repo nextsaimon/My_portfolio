@@ -157,6 +157,7 @@ export default function ContactForm() {
                   setTurnstileToken(token);
                 }}
                 onExpire={() => setTurnstileToken("")}
+                theme="light"
               />
 
               <div className="_form-actions">
