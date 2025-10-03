@@ -146,7 +146,8 @@ const Navbar = () => {
                   isMenuOpen
                     ? "open border border-gray-400 opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-4 pointer-events-none"
-                }`}
+                  }`}
+                style={{maxHeight: "315px"}}
               >
                 <li>
                   <a onClick={() => handleNavClick("Home")}>Home</a>

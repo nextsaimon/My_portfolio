@@ -9,8 +9,18 @@ const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <button onClick={toggleTheme} className="theme-toggle-button">
-      {theme === "light" ? <FaMoon /> : theme === "dark" ? <CgLaptop /> : <FaSun />}
+    <button
+      onClick={toggleTheme}
+      className="theme-toggle-button"
+      style={{ marginLeft: "40%" }}
+    >
+      {theme === "light" ? (
+        <FaMoon />
+      ) : theme === "dark" ? (
+        <CgLaptop />
+      ) : (
+        <FaSun />
+      )}
     </button>
   );
 };
