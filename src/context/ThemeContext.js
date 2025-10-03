@@ -14,7 +14,13 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     if (theme === "auto") {
-      document.documentElement.setAttribute("data-theme", "dark");
+      const prefersLight = window.matchMedia(
+        "(prefers-color-scheme: light)"
+      ).matches;
+      document.documentElement.setAttribute(
+        "data-theme",
+        prefersLight ? "light" : "dark"
+      );
     } else {
       document.documentElement.setAttribute("data-theme", theme);
     }
