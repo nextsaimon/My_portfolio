@@ -5,7 +5,7 @@ import React, { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("auto");
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "auto";
@@ -14,13 +14,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     if (theme === "auto") {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      document.documentElement.setAttribute(
-        "data-theme",
-        prefersDark ? "dark" : "light"
-      );
+      document.documentElement.setAttribute("data-theme", "dark");
     } else {
       document.documentElement.setAttribute("data-theme", theme);
     }
