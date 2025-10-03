@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
 import FadeContent from "@/styles/FadeContent/FadeContent";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,6 +104,9 @@ const Navbar = () => {
               <li>
                 <a onClick={() => handleNavClick("contact")}>Contact</a>
               </li>
+              <li>
+                <ThemeToggleButton />
+              </li>
             </ul>
           </nav>
         </FadeContent>
@@ -142,7 +146,8 @@ const Navbar = () => {
                   isMenuOpen
                     ? "open border border-gray-400 opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-4 pointer-events-none"
-                }`}
+                  }`}
+                style={{maxHeight: "315px"}}
               >
                 <li>
                   <a onClick={() => handleNavClick("Home")}>Home</a>
@@ -160,6 +165,9 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a onClick={() => handleNavClick("contact")}>Contact</a>
+                </li>
+                <li>
+                  <ThemeToggleButton />
                 </li>
               </ul>
             </div>

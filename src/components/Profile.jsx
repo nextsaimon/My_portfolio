@@ -7,7 +7,6 @@ import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
 import FadeContent from "@/styles/FadeContent/FadeContent";
 
 const Profile = () => {
-
   const m_b1_1 = () => {
     const btn1 = document.getElementById("btn1");
     btn1.style.color = "white";
