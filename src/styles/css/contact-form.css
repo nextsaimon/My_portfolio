@@ -322,62 +322,62 @@
 /* Dark Mode Styles */
 [data-theme="dark"] ._modal-content,
 [data-theme="dark"] ._success-modal {
-  background: #1f2937;
+  background: #393e46; /* modal background */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] ._modal-header h2,
 [data-theme="dark"] ._success-modal h3 {
-  color: #f9fafb;
+  color: #dfd0b8; /* primary text */
 }
 
 [data-theme="dark"] ._modal-header p,
 [data-theme="dark"] ._success-modal p {
-  color: #d1d5db;
+  color: #948979; /* secondary/subtle text */
 }
 
 [data-theme="dark"] ._btn-close {
-  color: #9ca3af;
+  color: #948979;
 }
 
 [data-theme="dark"] ._btn-close:hover {
-  background: #374151;
-  color: #f9fafb;
+  background: #222831;
+  color: #dfd0b8;
 }
 
 [data-theme="dark"] ._form-group label {
-  color: #d1d5db;
+  color: #dfd0b8;
 }
 
 [data-theme="dark"] ._form-group input,
 [data-theme="dark"] ._form-group textarea {
-  background: #374151;
-  border-color: #4b5563;
-  color: #f9fafb;
+  background: #222831; /* input background */
+  border-color: #393e46; /* input border */
+  color: #dfd0b8; /* input text */
 }
 
 [data-theme="dark"] ._form-group input:focus,
 [data-theme="dark"] ._form-group textarea:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  border-color: #dfd0b8;
+  box-shadow: 0 0 0 3px rgba(223, 208, 184, 0.2);
 }
 
 [data-theme="dark"] ._form-group input:disabled,
 [data-theme="dark"] ._form-group textarea:disabled {
-  background: #4b5563;
-  color: #9ca3af;
+  background: #393e46;
+  color: #948979;
 }
 
 [data-theme="dark"] ._form-actions {
-  border-top-color: #374151;
+  border-top-color: #393e46;
 }
 
 [data-theme="dark"] ._btn-secondary {
-  background: #374151;
-  color: #f9fafb;
-  border-color: #4b5563;
+  background: #222831;
+  color: #dfd0b8;
+  border-color: #393e46;
 }
 
 [data-theme="dark"] ._btn-secondary:hover:not(:disabled) {
-  background: #4b5563;
+  background: #393e46;
 }
