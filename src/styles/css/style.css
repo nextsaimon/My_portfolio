@@ -2,16 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --secondary-text-color: rgb(85, 85, 85);
-  --card-bg-color: #ffffff;
-  --border-color: rgb(163, 163, 163);
-  --btn-bg-color: #ffffff;
-  --btn-text-color: #000000;
-  --btn-color-2-bg: #000000;
-  --btn-color-2-text: #ffffff;
-  --hamburger-icon-color: #000000;
+  --bg-color: #F5EFE6;
+  --text-color: #222831;
+  --secondary-text-color: #6D94C5;
+  --card-bg-color: #E8DFCA;
+  --border-color: #CBDCEB;
+  --btn-bg-color: #E8DFCA;
+  --btn-text-color: #222831;
+  --btn-color-2-bg: #6D94C5;
+  --btn-color-2-text: #F5EFE6;
+  --hamburger-icon-color: #222831;
 }
 
 [data-theme="dark"] {
