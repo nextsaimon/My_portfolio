@@ -2,29 +2,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
-  --bg-color: #F5EFE6;
+  --bg-color: #f5efe6;
   --text-color: #222831;
-  --secondary-text-color: #6D94C5;
-  --card-bg-color: #E8DFCA;
-  --border-color: #CBDCEB;
-  --btn-bg-color: #E8DFCA;
+  --secondary-text-color: #6d94c5;
+  --card-bg-color: #e8dfca;
+  --border-color: #cbdceb;
+  --btn-bg-color: #e8dfca;
   --btn-text-color: #222831;
-  --btn-color-2-bg: #6D94C5;
-  --btn-color-2-text: #F5EFE6;
+  --btn-color-2-bg: #6d94c5;
+  --btn-color-2-text: #f5efe6;
   --hamburger-icon-color: #222831;
+  --btn-bg-color-hover: #d1c6aa;
+  --btn-color-2-bg-hover: #587aa7;
 }
 
 [data-theme="dark"] {
   --bg-color: #222831;
-  --text-color: #DFD0B8;
+  --text-color: #dfd0b8;
   --secondary-text-color: #948979;
-  --card-bg-color: #393E46;
+  --card-bg-color: #393e46;
   --border-color: #948979;
-  --btn-bg-color: #393E46;
-  --btn-text-color: #DFD0B8;
-  --btn-color-2-bg: #DFD0B8;
+  --btn-bg-color: #393e46;
+  --btn-text-color: #dfd0b8;
+  --btn-color-2-bg: #dfd0b8;
   --btn-color-2-text: #222831;
-  --hamburger-icon-color: #DFD0B8;
+  --hamburger-icon-color: #dfd0b8;
+  --btn-bg-color-hover: #2e333b;
+  --btn-color-2-bg-hover: #c7b696;
 }
 
 * {
@@ -53,7 +57,6 @@ p {
 .fa-solid,
 .fa-regular {
   font-size: 1.5rem;
-
 }
 
 .fa-facebook,
@@ -61,7 +64,6 @@ p {
 .fa-github {
   cursor: pointer;
 }
-
 
 #socials-container .fa-facebook:hover {
   color: #1877f2;
@@ -195,7 +197,7 @@ a:hover {
 
 .menu-links.open {
   max-height: 300px;
-  border-radius:20px ;
+  border-radius: 20px;
 }
 
 .hamburger-icon.open span:first-child {
@@ -247,7 +249,6 @@ section {
   margin-right: 10%;
 }
 
-
 .section__pic-container {
   /* overflow: hidden; */
   display: flex;
@@ -295,7 +296,7 @@ section {
   justify-content: center;
   gap: 1rem;
   position: relative;
-  z-index:1;
+  z-index: 1;
 }
 
 .btn {
@@ -315,6 +316,13 @@ section {
 .btn-color-2:hover {
   cursor: pointer;
 }
+.btn-color-1:hover {
+  background-color: var(--btn-bg-color-hover);
+}
+
+.btn-color-2:hover {
+  background-color: var(--btn-color-2-bg-hover);
+}
 
 .btn-color-1 {
   background-color: var(--btn-bg-color);
@@ -325,10 +333,6 @@ section {
   background-color: var(--btn-color-2-bg);
   color: var(--btn-color-2-text);
 }
-
-
-
-
 
 /* ABOUT SECTION */
 #about {
