@@ -15,16 +15,16 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-  --secondary-text-color: #bbbbbb;
-  --card-bg-color: #1e1e1e;
-  --border-color: #555555;
-  --btn-bg-color: #1e1e1e;
-  --btn-text-color: #ffffff;
-  --btn-color-2-bg: #ffffff;
-  --btn-color-2-text: #000000;
-  --hamburger-icon-color: #ffffff;
+  --bg-color: #222831;
+  --text-color: #DFD0B8;
+  --secondary-text-color: #948979;
+  --card-bg-color: #393E46;
+  --border-color: #948979;
+  --btn-bg-color: #393E46;
+  --btn-text-color: #DFD0B8;
+  --btn-color-2-bg: #DFD0B8;
+  --btn-color-2-text: #222831;
+  --hamburger-icon-color: #DFD0B8;
 }
 
 * {
