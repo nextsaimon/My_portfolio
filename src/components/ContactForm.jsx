@@ -73,7 +73,10 @@ export default function ContactForm() {
         delay={0}
         Zindex={false}
       >
-        <button className="_btn-connect" onClick={() => setIsModalOpen(true)}>
+        <button
+          className="_btn-connect contact-info-upper-container"
+          onClick={() => setIsModalOpen(true)}
+        >
           Leave a Message....
         </button>
       </AnimatedContent>

@@ -2,18 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
-  --bg-color: #f5efe6;
-  --text-color: #222831;
-  --secondary-text-color: #6d94c5;
-  --card-bg-color: #e8dfca;
-  --border-color: #cbdceb;
-  --btn-bg-color: #e8dfca;
-  --btn-text-color: #222831;
-  --btn-color-2-bg: #6d94c5;
-  --btn-color-2-text: #f5efe6;
-  --hamburger-icon-color: #222831;
-  --btn-bg-color-hover: #d1c6aa;
-  --btn-color-2-bg-hover: #587aa7;
+  /* 🌞 Light Theme — custom generated */
+  --bg-color: #f5f7fa; /* very soft neutral background */
+  --text-color: #1e2a38; /* dark navy-gray for clean contrast */
+  --secondary-text-color: #6b7c93; /* subtle muted gray-blue */
+  --card-bg-color: #ffffff; /* crisp white cards */
+  --border-color: #e2e8f0; /* light border */
+  --btn-bg-color: #e8ecf3; /* soft button background */
+  --btn-text-color: #1e2a38; /* readable dark text */
+  --btn-color-2-bg: #3a7afe; /* primary blue accent */
+  --btn-color-2-text: #ffffff; /* white text for accent button */
+  --hamburger-icon-color: #1e2a38; /* navbar icon */
+  --btn-bg-color-hover: #d8dee9; /* gentle hover */
+  --btn-color-2-bg-hover: #2d63d9; /* darker blue hover */
 }
 
 [data-theme="dark"] {
