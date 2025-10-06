@@ -251,8 +251,8 @@ section {
 .section__pic-container {
   /* overflow: hidden; */
   display: flex;
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
   margin: auto 0;
 }
 

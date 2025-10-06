@@ -75,8 +75,8 @@ const Profile = () => {
               className="profile-pic"
               src={profile_img}
               alt="Saimon's Profile"
-              width={400} // Default width
-              height={400} // Default height
+              width={450} // Default width
+              height={450} // Default height
               placeholder="blur" // Blur effect while loading
               quality={100}
               style={{ objectFit: "cover", borderRadius: "50%" }} // Optional: rounded shape
