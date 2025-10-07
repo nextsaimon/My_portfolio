@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import Turnstile from "cf-turnstile";
 
+export const runtime = "edge";
+
 const turnstile = Turnstile(process.env.TURNSTILE_SECRET_KEY);
 
 export async function POST(req) {
