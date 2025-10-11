@@ -1,5 +1,6 @@
 /* GENERAL */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&display=swap');
 
 :root {
   /* 🌞 Light Theme — custom generated */
@@ -35,6 +36,8 @@
 * {
   margin: 0;
   padding: 0;
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
 }
 
 body {
@@ -133,8 +136,12 @@ a:hover {
   text-underline-offset: 1rem;
   text-decoration-color: var(--border-color);
 }
-
+#Home,#Footer{
+font-family: "BBH Sans Bogle", sans-serif;
+  font-weight: 400;
+}
 .logo {
+  font-style: normal;
   font-size: 2rem;
   cursor: pointer;
 }

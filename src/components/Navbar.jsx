@@ -62,7 +62,7 @@ const Navbar = () => {
   };
 
   return (
-    <div id="Home" className="z-[1000]" ref={navRef}>
+    <div id="Home" className="z-[1000] select-none" ref={navRef}>
       {/* Desktop Navbar */}
       <AnimatedContent
         distance={150}
@@ -83,7 +83,10 @@ const Navbar = () => {
           initialOpacity={0}
         >
           <nav id="desktop-nav">
-            <div className="logo" onClick={() => handleNavClick("Home")}>
+            <div
+              className="logo select-none cursor-pointer"
+              onClick={() => handleNavClick("Home")}
+            >
               SAIMON
             </div>
             <ul className="nav-links">
@@ -111,6 +114,7 @@ const Navbar = () => {
           </nav>
         </FadeContent>
       </AnimatedContent>
+
       {/* Mobile Hamburger Navbar */}
       <AnimatedContent
         distance={150}
@@ -130,11 +134,18 @@ const Navbar = () => {
           easing="ease-out"
           initialOpacity={0}
         >
-          <nav id="hamburger-nav">
-            <div className="logo">SAIMON</div>
+          <nav id="hamburger-nav" className="select-none">
+            <div
+              className="logo cursor-pointer"
+              onClick={() => handleNavClick("Home")}
+            >
+              SAIMON
+            </div>
             <div className="hamburger-menu">
               <div
-                className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
+                className={`hamburger-icon ${
+                  isMenuOpen ? "open" : ""
+                } select-none cursor-pointer`}
                 onClick={toggleMenu}
               >
                 <span></span>
@@ -146,8 +157,8 @@ const Navbar = () => {
                   isMenuOpen
                     ? "open border border-gray-400 opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-4 pointer-events-none"
-                  }`}
-                style={{maxHeight: "315px"}}
+                }`}
+                style={{ maxHeight: "315px" }}
               >
                 <li>
                   <a onClick={() => handleNavClick("Home")}>Home</a>

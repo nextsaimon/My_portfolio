@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation"; // Import from next/navigation
+import { useRouter } from "next/navigation";
 import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
 import FadeContent from "@/styles/FadeContent/FadeContent";
 
@@ -9,7 +9,7 @@ const Footer = () => {
 
   const handleFooterClick = (targetId) => {
     if (router.pathname !== "/") {
-      router.push("/"); // Navigate to home page
+      router.push("/");
       setTimeout(() => {
         document
           .getElementById(targetId)
@@ -21,11 +21,14 @@ const Footer = () => {
   };
 
   const handleProjectClick = () => {
-    router.push("/project"); // Navigate to project page
+    router.push("/project");
   };
 
   return (
-    <footer style={{ overflow: "hidden" }}>
+    <footer
+      id="Footer"
+      className="overflow-hidden select-none text-center py-6"
+    >
       <AnimatedContent
         distance={150}
         direction="vertical"
@@ -45,32 +48,31 @@ const Footer = () => {
           initialOpacity={0}
         >
           <nav>
-            <ul className="nav-links">
-              <li style={{ cursor: "pointer" }}>
+            <ul className="nav-links flex justify-center gap-6 flex-wrap select-none">
+              <li className="cursor-pointer">
                 <a onClick={() => handleFooterClick("Home")}>Home</a>
               </li>
-              <li style={{ cursor: "pointer" }}>
+              <li className="cursor-pointer">
                 <a onClick={() => handleFooterClick("about")}>About</a>
               </li>
-              <li style={{ cursor: "pointer" }}>
+              <li className="cursor-pointer">
                 <a onClick={() => handleFooterClick("experience")}>
                   Experience
                 </a>
               </li>
-              <li style={{ cursor: "pointer" }}>
+              <li className="cursor-pointer">
                 <a onClick={handleProjectClick}>Project</a>
               </li>
-              <li style={{ cursor: "pointer" }}>
+              <li className="cursor-pointer">
                 <a onClick={() => handleFooterClick("contact")}>Contact</a>
               </li>
             </ul>
           </nav>
-          <p>
-            {/* update the year every new year */}
-            &#169; {new Date().getFullYear()} Saimon. All Rights Reserved.
-          </p>
         </FadeContent>
       </AnimatedContent>
+      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 select-none">
+        &#169; {new Date().getFullYear()} Saimon. All Rights Reserved.
+      </p>
     </footer>
   );
 };
