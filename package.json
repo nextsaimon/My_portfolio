@@ -1,0 +1,39 @@
+{
+  "name": "update",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages build"
+  },
+  "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@marsidev/react-turnstile": "^1.3.1",
+    "cf-turnstile": "^1.0.8",
+    "framer-motion": "^12.23.0",
+    "fs": "^0.0.1-security",
+    "gsap": "^3.13.0",
+    "matter-js": "^0.20.0",
+    "next": "15.5.2",
+    "path": "^0.12.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
+    "react-turnstile": "^1.1.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.5",
+    "tailwindcss": "^4"
+  }
+}
