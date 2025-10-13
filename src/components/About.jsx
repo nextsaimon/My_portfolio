@@ -4,8 +4,8 @@ import { FaBriefcase } from "react-icons/fa";
 import Image from "next/image";
 import React from "react";
 import about_img from "../../public/about-pic.jpg";
-import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
-import FadeContent from "@/context/FadeContent/FadeContent";
+import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
+import FadeContent from "@/styles/FadeContent/FadeContent";
 
 // Function to calculate the age
 const calculateAge = (birthDate) => {
@@ -33,7 +33,7 @@ const About = () => {
   const experience = calculateExperience(2021) - 1; // Calculate years of experience since 2021
 
   return (
-    <section id="about" style={{ overflow: "hidden" }} className=" relative h-[100vh]">
+    <section id="about" style={{ overflow: "hidden" }}>
       <AnimatedContent
         distance={150}
         direction="vertical"
@@ -52,12 +52,12 @@ const About = () => {
           easing="ease-out"
           initialOpacity={0}
         >
-          <p className="section__text__p1 text-center">Get To Know More</p>
-          <h1 className="title text-5xl text-center">About Me</h1>
+          <p className="section__text__p1 ">Get To Know More</p>
+          <h1 className="title">About Me</h1>
         </FadeContent>
       </AnimatedContent>
-      <div className="section-container flex flex-col xl:flex-row items-center justify-center mt-4 ">
-        <div className="section__pic-container flex w-[275px] h-[275px] xl:h-[500px] xl:w-[500px]  my-auto">
+      <div className="section-container justify-center">
+        <div className="section__pic-container">
           <FadeContent
             blur={true}
             duration={1000}
@@ -65,7 +65,7 @@ const About = () => {
             initialOpacity={0}
           >
             <Image
-              className="about-pic rounded-[2rem]"
+              className="about-pic"
               src={about_img}
               alt="Saimon's Profile"
               width={400}
@@ -76,7 +76,7 @@ const About = () => {
             />
           </FadeContent>
         </div>
-        <div className="about-details-container flex flex-col items-center">
+        <div className="about-details-container items-center">
           <AnimatedContent
             distance={150}
             direction="vertical"
@@ -89,8 +89,8 @@ const About = () => {
             threshold={0.2}
             delay={0}
           >
-            <div className="about-containers flex mx-auto gap-8 my-8">
-              <div className="details-container text-center flex flex-col border border-[var(--border-color)] p-6 rounded-[var(--radius)] bg-[var(--card-bg-color)]">
+            <div className="about-containers mx-auto">
+              <div className="details-container text-center flex flex-col">
                 <i
                   className="fas fa-briefcase icon mx-auto "
                   style={{ margin: "auto" }}
@@ -125,7 +125,7 @@ const About = () => {
             easing="ease-out"
             initialOpacity={0}
           >
-            <div className="text-container border-8 border-[var(--border-color)] p-2 border-t-0 border-r-0 border-b-0 mx-12 lg:mx-4 xl:mx-0">
+            <div className="text-container">
               <p>It&apos;s me......</p>
               <h1> Saimon 🙋‍♂️</h1>
               <p>💻 A junior Full Stack developer. 🌐</p>

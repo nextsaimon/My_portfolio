@@ -1,0 +1,515 @@
+/* GENERAL */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&display=swap");
+
+:root {
+  --bg-color: #f5f7fa;
+  --text-color: #1e2a38;
+  --secondary-text-color: #6b7c93;
+  --card-bg-color: #ffffff;
+  --border-color: #e2e8f0;
+  --btn-1-bg: #e8ecf3;
+  --btn-1-text: #1e2a38;
+  --btn-2-bg: #3a7afe;
+  --btn-2-text: #ffffff;
+  --hamburger-icon-color: #1e2a38;
+  --btn-1-bg-hover: #d8dee9;
+  --btn-color-2-bg-hover: #2d63d9;
+}
+
+[data-theme="dark"] {
+  --bg-color: #222831;
+  --text-color: #dfd0b8;
+  --secondary-text-color: #948979;
+  --card-bg-color: #393e46;
+  --border-color: #948979;
+  --btn-bg-color: #393e46;
+  --btn-text-color: #dfd0b8;
+  --btn-color-2-bg: #dfd0b8;
+  --btn-color-2-text: #222831;
+  --hamburger-icon-color: #dfd0b8;
+  --btn-bg-color-hover: #2e333b;
+  --btn-color-2-bg-hover: #c7b696;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: var(--secondary-text-color);
+}
+
+/* ICONS */
+.icon,
+.fa-brands,
+.fa-solid,
+.fa-regular {
+  font-size: 1.5rem;
+}
+
+.fa-facebook,
+.fa-instagram,
+.fa-github {
+  cursor: pointer;
+}
+
+#socials-container .fa-facebook:hover {
+  color: #1877f2;
+  /* Facebook blue */
+}
+
+#socials-container .fa-instagram:hover {
+  color: #e1306c;
+  /* Instagram pink */
+}
+
+#socials-container .fa-github:hover {
+  color: #333;
+  /* GitHub black */
+}
+
+.fa-facebook,
+.fa-instagram,
+.fa-github,
+.email-icon {
+  transition: transform 0.3s ease;
+  /* Controls the duration and easing */
+}
+
+.fa-facebook:hover,
+.fa-instagram:hover,
+.fa-github:hover,
+.email-icon:hover {
+  transform: scale(1.2);
+  /* Scale effect on hover */
+}
+
+/* TRANSITION */
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  text-decoration-color: var(--bg-color);
+}
+
+a:hover {
+  color: var(--secondary-text-color);
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: var(--border-color);
+}
+#Home,
+#Footer {
+  font-family: "BBH Sans Bogle", sans-serif;
+  font-weight: 400;
+}
+.logo {
+  font-style: normal;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-links li,
+.menu-links li {
+  cursor: pointer;
+}
+
+/* HAMBURGER MENU */
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--hamburger-icon-color);
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--bg-color);
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+  border-radius: 10%;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+  border-radius: 20px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+/* SECTIONS */
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 80vh;
+}
+
+#profile_ico {
+  margin-right: 10%;
+}
+
+.section__pic-container {
+  /* overflow: hidden; */
+  display: flex;
+  height: 500px;
+  width: 500px;
+  margin: auto 0;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+  border: var(--border-color) 0.1rem solid;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+}
+.btn-color-1:hover {
+  background-color: var(--btn-bg-color-hover);
+}
+
+.btn-color-2:hover {
+  background-color: var(--btn-color-2-bg-hover);
+}
+
+.btn-color-1 {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+}
+
+.btn-color-2 {
+  background-color: var(--btn-color-2-bg);
+  color: var(--btn-color-2-text);
+}
+
+/* ABOUT SECTION */
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: var(--card-bg-color);
+  border-radius: 2rem;
+  border: var(--border-color) 0.1rem solid;
+  text-align: center;
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+/* EXPERIENCE SECTION */
+#experience {
+  position: relative;
+}
+
+.experience-sub-title {
+  color: var(--secondary-text-color);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+  position: relative;
+}
+
+.card {
+  border-color: var(--border-color);
+  background-color: var(--card-bg-color);
+  border-radius: 20px;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+img {
+  transition: transform ease 700ms;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.btn {
+  padding: 10px;
+}
+
+/* CONTACT */
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: var(--border-color) 0.1rem solid;
+  background: var(--card-bg-color);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+
+.theme-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}

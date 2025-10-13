@@ -1,5 +1,5 @@
 "use client";
-import { SiJavascript } from "react-icons/si";
+import { SiJavascript } from "react-icons/si"; 
 import { FaRegFilePowerpoint } from "react-icons/fa";
 import { BsFillFileEarmarkWordFill } from "react-icons/bs";
 import { SiAdobeillustrator } from "react-icons/si";
@@ -14,8 +14,8 @@ import React from "react";
 import { SiAdobephotoshop } from "react-icons/si";
 import { SiNextdotjs } from "react-icons/si";
 import { RiFileExcel2Line } from "react-icons/ri";
-import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
-import FadeContent from "@/context/FadeContent/FadeContent";
+import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
+import FadeContent from "@/styles/FadeContent/FadeContent";
 
 const Experience = () => {
   const frontendSkills = [
@@ -124,8 +124,8 @@ const Experience = () => {
         key={index}
         Zindex={false}
       >
-        <article className="flex justify-around w-40 gap-2">
-          <i className={`${skill.class} icon`}>{skill.icon}</i>
+        <article>
+          <i className={skill.class}>{skill.icon}</i>
           <div>
             <h3>{skill.name}</h3>
             <p>{skill.level}</p>
@@ -135,11 +135,7 @@ const Experience = () => {
     ));
 
   return (
-    <section
-      id="experience"
-      style={{ overflow: "hidden" }}
-      className="mb-10 lg:mb-0 lg:h-[100vh]"
-    >
+    <section id="experience" style={{ overflow: "hidden" }}>
       <AnimatedContent
         distance={150}
         direction="vertical"
@@ -158,20 +154,20 @@ const Experience = () => {
           easing="ease-out"
           initialOpacity={0}
         >
-          <p className="section__text__p1 text-center">Explore My</p>
-          <h1 className="title text-5xl text-center">Experience</h1>
+          <p className="section__text__p1">Explore My</p>
+          <h1 className="title">Experience</h1>
         </FadeContent>
       </AnimatedContent>
 
-      <div className="experience-details-container flex justify-center flex-col mt-8">
-        <div className="about-containers flex flex-col lg:flex-row mx-6 gap-8 my-8 justify-center items-center">
+      <div className="experience-details-container">
+        <div className="about-containers justify-center">
           <FadeContent
             blur={true}
             duration={1000}
             easing="ease-out"
             initialOpacity={0}
           >
-            <div className="details-container mt-8 max-w-[600px] p-6 flex-1 bg-[var(--card-bg-color)] rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] text-center">
+            <div className="details-container max-w-[600px]">
               <AnimatedContent
                 distance={150}
                 direction="horizontal"
@@ -190,12 +186,10 @@ const Experience = () => {
                   easing="ease-out"
                   initialOpacity={0}
                 >
-                  <h2 className="experience-sub-title text-[var(--secondary-text-color)] font-semibold text-[1.75rem] mb-8 text-xl">
-                    Full-Stack Development
-                  </h2>
+                  <h2 className="experience-sub-title">Full-Stack Development</h2>
                 </FadeContent>
               </AnimatedContent>
-              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10">
+              <div className="article-container">
                 {renderSkills(frontendSkills)}
               </div>
             </div>
@@ -207,7 +201,7 @@ const Experience = () => {
             initialOpacity={0}
           >
             {" "}
-            <div className="details-container mt-8 max-w-[600px] p-6 flex-1 bg-[var(--card-bg-color)] rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] text-center">
+            <div className="details-container max-w-[600px]">
               <AnimatedContent
                 distance={150}
                 direction="horizontal"
@@ -226,13 +220,11 @@ const Experience = () => {
                   easing="ease-out"
                   initialOpacity={0}
                 >
-                  <h2 className="experience-sub-title text-[var(--secondary-text-color)] font-semibold text-[1.75rem] mb-8 text-xl">
-                    Other Skills
-                  </h2>
+                  <h2 className="experience-sub-title">Other Skills</h2>
                 </FadeContent>
               </AnimatedContent>
 
-              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10">
+              <div className="article-container">
                 {renderSkills(otherSkills)}
               </div>
             </div>

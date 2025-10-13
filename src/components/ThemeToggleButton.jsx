@@ -11,7 +11,7 @@ const ThemeToggleButton = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="cursor-pointer text-2xl text-[color:var(--text-color)] border-[none]"
+      className="theme-toggle-button"
       style={{ marginLeft: "40%" }}
     >
       {theme === "light" ? (

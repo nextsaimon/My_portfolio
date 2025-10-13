@@ -5,16 +5,12 @@ import { MdEmail } from "react-icons/md";
 import React from "react";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
-import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
-import FadeContent from "@/context/FadeContent/FadeContent";
+import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
+import FadeContent from "@/styles/FadeContent/FadeContent";
 
 const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="flex justify-center flex-col"
-      style={{ overflow: "hidden" }}
-    >
+    <section id="contact" style={{ overflow: "hidden" }}>
       <AnimatedContent
         distance={150}
         direction="vertical" // Fixed typo: "vartical" → "vertical"
@@ -33,8 +29,8 @@ const Contact = () => {
           easing="ease-out"
           initialOpacity={0}
         >
-          <p className="section__text__p1 text-center">Get in Touch</p>
-          <h1 className="title text-5xl text-center">Contact Me</h1>
+          <p className="section__text__p1">Get in Touch</p>
+          <h1 className="title">Contact Me</h1>
         </FadeContent>
       </AnimatedContent>
 
@@ -51,21 +47,21 @@ const Contact = () => {
         delay={0}
         Zindex={false}
       >
-        <div className="contact-info-upper-container flex justify-center rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] bg-[var(--card-bg-color)] my-8 mx-auto p-2 max-w-[350px]">
-          <div className="contact-info-container flex items-center justify-center gap-2 m-4">
+        <div className="contact-info-upper-container max-w-[350px]">
+          <div className="contact-info-container">
             <i className="fas fa-envelope icon contact-icon email-icon">
               <MdEmail />
             </i>
-            <h2>
+            <p>
               <Link href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}>
                 {process.env.NEXT_PUBLIC_EMAIL}
               </Link>
-            </h2>
+            </p>
           </div>
         </div>
       </AnimatedContent>
 
-      <div className="contact-info-container flex items-center justify-center z-50">
+      <div className="contact-info-container z-50">
         <ContactForm />
       </div>
       <AnimatedContent
@@ -81,12 +77,12 @@ const Contact = () => {
         delay={0}
         Zindex={false}
       >
-        <div className="contact-info-upper-container flex justify-center rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] bg-[var(--card-bg-color)] my-8 mx-auto p-2 max-w-[350px]">
-          <div className="contact-info-container flex items-center justify-center gap-2 m-4">
+        <div className="contact-info-upper-container max-w-[350px]">
+          <div className="contact-info-container">
             <i className="fab fa-facebook icon contact-icon">
               <BsFacebook />
             </i>
-            <h2>
+            <p>
               <Link
                 href={process.env.NEXT_PUBLIC_FACEBOOK}
                 target="_blank"
@@ -94,12 +90,12 @@ const Contact = () => {
               >
                 Facebook
               </Link>
-            </h2>{" "}
+            </p>{" "}
             <b>||</b>
             <i className="fab fa-instagram icon contact-icon">
               <AiOutlineInstagram />
             </i>
-            <h2>
+            <p>
               <Link
                 href={process.env.NEXT_PUBLIC_INSTAGRAM}
                 target="_blank"
@@ -107,7 +103,7 @@ const Contact = () => {
               >
                 Instagram
               </Link>
-            </h2>
+            </p>
           </div>
         </div>
       </AnimatedContent>

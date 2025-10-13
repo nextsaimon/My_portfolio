@@ -1,7 +1,12 @@
+import "@/styles/css/style.css";
+import "@/styles/css/mediaqueries.css";
+import "@/styles/css/contact-form.css";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/context/ThemeContext";
+import { Providers } from "./providers";
+
+
 export const metadata = {
   title: "Saimon – Portfolio",
   description:
@@ -47,11 +52,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-         <ThemeProvider>
+        <Providers>
           <Navbar />
           {children}
           <Footer />
-          </ThemeProvider>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -69,7 +73,7 @@ export default function RootLayout({ children }) {
               }),
             }}
           />
-        
+        </Providers>
       </body>
     </html>
   );

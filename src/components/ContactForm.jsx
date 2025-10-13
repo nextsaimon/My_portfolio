@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
+import { useState } from "react";
+import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
 import Turnstile from "react-turnstile";
 
 export default function ContactForm() {
@@ -9,12 +9,6 @@ export default function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [theme, setTheme] = useState("auto");
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme") || "auto";
-    setTheme(storedTheme);
-  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -55,7 +49,7 @@ export default function ContactForm() {
       setShowSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
       setTurnstileToken("");
-      setIsModalOpen(false); // Close modal on success
+      setIsModalOpen(false);
     } catch (err) {
       setErrorMessage(err.message);
       setShowError(true);
@@ -80,49 +74,37 @@ export default function ContactForm() {
         Zindex={false}
       >
         <button
-          className="p-4 bg-[var(--card-bg-color)] rounded-[var(--radius)] border-2 border-[var(--border-color)] cursor-pointer  hover:underline hover:underline-offset-[1rem] hover:decoration-[var(--border-color)] transition-all duration-300 ease-in-out"
+          className="_btn-connect contact-info-upper-container"
           onClick={() => setIsModalOpen(true)}
         >
-          <h2>Leave a Message....</h2>
+          Leave a Message....
         </button>
       </AnimatedContent>
 
       {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-[#0000053d] flex items-center justify-center z-50 p-4"
-          onClick={() => setIsModalOpen(false)}
-        >
+        <div className="_modal-overlay" onClick={() => setIsModalOpen(false)}>
           <div
-            className="bg-[var(--bg-color)] opacity-100 rounded-xl w-full max-w-md max-h-[90vh] shadow-2xl relative overflow-y-auto"
+            className="_modal-content overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 pb-0 relative">
+            <div className="_modal-header">
               <div>
-                <h2 className="text-xl font-semibold text-[var(--text-color)] mb-2">
-                  Contact Me
-                </h2>
-                <p className="text-sm text-[var(--secondary-text-color)]">
-                  Send us a message and we'll get back to you ASAP.
-                </p>
+                <h2>Contact Me</h2>
+                <p>Send us a message and we'll get back to you ASAP.</p>
               </div>
               <button
-                className="absolute top-4 right-4 bg-transparent border-none text-2xl cursor-pointer text-[var(--secondary-text-color)] w-8 h-8 flex items-center justify-center rounded transition-colors duration-200 hover:bg-[var(--bg-color)] hover:text-[var(--text-color)]"
+                className="_btn-close"
                 onClick={() => setIsModalOpen(false)}
               >
                 ×
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6">
+            <form onSubmit={handleSubmit} className="_contact-form">
               {/* name + email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <div className="mb-4 sm:mb-0">
-                  <label
-                    htmlFor="name"
-                    className="block mb-1 font-medium text-[var(--text-color)] text-sm"
-                  >
-                    Name *
-                  </label>
+              <div className="_form-row">
+                <div className="_form-group">
+                  <label htmlFor="name">Name *</label>
                   <input
                     id="name"
                     type="text"
@@ -130,16 +112,10 @@ export default function ContactForm() {
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     required
                     disabled={isSubmitting}
-                    className="w-full p-2 border-[2px] border-[var(--border-color)] rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-[var(--text-color)] focus:ring-1 focus:ring-[rgba(var(--text-color-rgb),0.2)] bg-[var(--card-bg-color)] text-[var(--text-color)] disabled:bg-[var(--card-bg-color)] disabled:text-[var(--secondary-text-color)] disabled:cursor-not-allowed"
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block mb-1 font-medium text-[var(--text-color)] text-sm"
-                  >
-                    Email *
-                  </label>
+                <div className="_form-group">
+                  <label htmlFor="email">Email *</label>
                   <input
                     id="email"
                     type="email"
@@ -147,19 +123,13 @@ export default function ContactForm() {
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     required
                     disabled={isSubmitting}
-                    className="w-full p-2 border-[2px] border-[var(--border-color)] rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-[var(--text-color)] focus:ring-1 focus:ring-[rgba(var(--text-color-rgb),0.2)] bg-[var(--card-bg-color)] text-[var(--text-color)] disabled:bg-[var(--card-bg-color)] disabled:text-[var(--secondary-text-color)] disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
 
               {/* subject */}
-              <div className="mb-4">
-                <label
-                  htmlFor="subject"
-                  className="block mb-1 font-medium text-[var(--text-color)] text-sm"
-                >
-                  Subject *
-                </label>
+              <div className="_form-group">
+                <label htmlFor="subject">Subject *</label>
                 <input
                   id="subject"
                   type="text"
@@ -167,18 +137,12 @@ export default function ContactForm() {
                   onChange={(e) => handleInputChange("subject", e.target.value)}
                   required
                   disabled={isSubmitting}
-                  className="w-full p-2 border-[2px] border-[var(--border-color)] rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-[var(--text-color)] focus:ring-1 focus:ring-[rgba(var(--text-color-rgb),0.2)] bg-[var(--card-bg-color)] text-[var(--text-color)] disabled:bg-[var(--card-bg-color)] disabled:text-[var(--secondary-text-color)] disabled:cursor-not-allowed"
                 />
               </div>
 
               {/* message */}
-              <div className="mb-4">
-                <label
-                  htmlFor="message"
-                  className="block mb-1 font-medium text-[var(--text-color)] text-sm"
-                >
-                  Message *
-                </label>
+              <div className="_form-group">
+                <label htmlFor="message">Message *</label>
                 <textarea
                   id="message"
                   value={formData.message}
@@ -186,28 +150,23 @@ export default function ContactForm() {
                   required
                   disabled={isSubmitting}
                   rows="4"
-                  className="w-full p-2 border-[2px] border-[var(--border-color)] rounded-md text-sm transition-all duration-200 focus:outline-none focus:border-[var(--text-color)] focus:ring-1 focus:ring-[rgba(var(--text-color-rgb),0.2)] bg-[var(--card-bg-color)] text-[var(--text-color)] disabled:bg-[var(--card-bg-color)] disabled:text-[var(--secondary-text-color)] disabled:cursor-not-allowed"
                 />
               </div>
 
               {/* Cloudflare Turnstile */}
-              <div className="mb-4">
-                {" "}
-                {/* Added a margin-bottom for spacing */}
-                <Turnstile
-                  sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-                  onVerify={(token) => {
-                    setTurnstileToken(token);
-                  }}
-                  onExpire={() => setTurnstileToken("")}
-                  theme={theme} // Consider making this dynamic based on theme
-                />
-              </div>
+              <Turnstile
+                sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                onVerify={(token) => {
+                  setTurnstileToken(token);
+                }}
+                onExpire={() => setTurnstileToken("")}
+                theme="light"
+              />
 
-              <div className="flex gap-3 mt-5 pt-4 border-t border-[var(--border-color)]">
+              <div className="_form-actions">
                 <button
                   type="button"
-                  className="flex-1 px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all duration-200 border border-[var(--border-color)] bg-[var(--bg-color)] text-[var(--text-color)] hover:bg-[var(--card-bg-color)] disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="_btn-secondary"
                   onClick={() => setIsModalOpen(false)}
                   disabled={isSubmitting}
                 >
@@ -215,17 +174,10 @@ export default function ContactForm() {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed bg-[var(--btn-2-bg)] text-[var(--btn-2-text)] hover:bg-[var(--btn-2-bg-hover)]"
+                  className="_btn-primary"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <span className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></span>
-                      Sending...
-                    </span>
-                  ) : (
-                    "Send Message"
-                  )}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </div>
             </form>
@@ -235,25 +187,13 @@ export default function ContactForm() {
 
       {/* Success Modal */}
       {showSuccess && (
-        <div
-          className="fixed inset-0 bg-[#0000053d] flex items-center justify-center z-50 p-4"
-          onClick={() => setShowSuccess(false)}
-        >
-          <div
-            className="bg-[var(--card-bg-color)] rounded-xl p-8 text-center max-w-sm w-full shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">
-              ✓
-            </div>
-            <h3 className="text-lg font-semibold text-[var(--text-color)] mb-3">
-              Message Sent Successfully!
-            </h3>
-            <p className="text-[var(--secondary-text-color)] leading-normal mb-6">
-              Thank you! I’ll reply as soon as I can.
-            </p>
+        <div className="_modal-overlay" onClick={() => setShowSuccess(false)}>
+          <div className="_success-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="_success-icon">✓</div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you! I’ll reply as soon as I can.</p>
             <button
-              className="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors duration-200 bg-[var(--btn-2-bg)] text-[var(--btn-2-text)] hover:bg-[var(--btn-2-bg-hover)]"
+              className="_btn-primary"
               onClick={() => setShowSuccess(false)}
             >
               Close
@@ -264,25 +204,19 @@ export default function ContactForm() {
 
       {/* Error Modal */}
       {showError && (
-        <div
-          className="fixed inset-0 bg-[#0000053d] bg-opacity-50 flex items-center justify-center z-50 p-4"
-          onClick={() => setShowError(false)}
-        >
+        <div className="_modal-overlay" onClick={() => setShowError(false)}>
           <div
-            className="bg-[var(--card-bg-color)] rounded-xl p-8 text-center max-w-sm w-full shadow-2xl border border-red-500"
+            className="_success-modal"
             onClick={(e) => e.stopPropagation()}
+            style={{ border: "1px solid #dc2626" }}
           >
-            <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">
+            <div className="_success-icon" style={{ background: "#dc2626" }}>
               !
             </div>
-            <h3 className="text-lg font-semibold text-[var(--text-color)] mb-3">
-              Submission Failed
-            </h3>
-            <p className="text-[var(--secondary-text-color)] leading-normal mb-6">
-              {errorMessage}
-            </p>
+            <h3>Submission Failed</h3>
+            <p>{errorMessage}</p>
             <button
-              className="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors duration-200 bg-[var(--btn-2-bg)] text-[var(--btn-2-text)] hover:bg-[var(--btn-2-bg-hover)]"
+              className="_btn-primary"
               onClick={() => setShowError(false)}
             >
               Try Again

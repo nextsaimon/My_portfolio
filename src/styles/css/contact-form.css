@@ -1,0 +1,383 @@
+/* Connect Me Button */
+._connect-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+._connect-btn:hover {
+  background: #1d4ed8;
+}
+
+._connect-btn:active {
+  transform: translateY(1px);
+}
+
+/* Modal Overlay */
+._modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+/* Modal Content */
+._modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* Modal Header */
+._modal-header {
+  padding: 24px 24px 0;
+  position: relative;
+  /* display: flex ;
+  align-items: center;
+  justify-content: space-between; */
+}
+._btn-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+._modal-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+._modal-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+._close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+._close-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Contact Form */
+._contact-form {
+  padding: 24px;
+}
+
+._form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  ._form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+._form-group {
+  margin-bottom: 16px;
+}
+
+._form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+._form-group input,
+._form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+._form-group input:focus,
+._form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+._form-group input:disabled,
+._form-group textarea:disabled {
+  background: #f9fafb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+._form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Form Actions - Now inside form body */
+._form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+._btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+._btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+._btn-connect {
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #a3a3a3;
+  text-decoration: none;
+  text-decoration-color: white;
+  cursor: pointer;
+}
+
+._btn-connect:hover {
+  color: gray;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+  transition: all 300ms ease;
+}
+
+._btn-primary {
+  color: #fff;
+  background: #2563eb;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+._btn-primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+._btn-secondary {
+  background: white;
+  color: #374151;
+  border-color: #d1d5db;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+._btn-secondary:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+/* Spinner */
+._spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Modal */
+._success-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+._success-icon {
+  width: 64px;
+  height: 64px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 auto 16px;
+}
+
+._success-modal h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+._success-modal p {
+  margin: 0 0 24px 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  ._modal-content {
+    max-width: 350px;
+    margin: 16px;
+  }
+
+  ._modal-header {
+    padding: 20px 20px 0;
+  }
+
+  ._contact-form {
+    padding: 20px;
+  }
+
+  ._form-actions {
+    gap: 8px;
+  }
+
+  ._btn {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  ._connect-btn {
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] ._modal-content,
+[data-theme="dark"] ._success-modal {
+  background: #393e46; /* modal background */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] ._modal-header h2,
+[data-theme="dark"] ._success-modal h3 {
+  color: #dfd0b8; /* primary text */
+}
+
+[data-theme="dark"] ._modal-header p,
+[data-theme="dark"] ._success-modal p {
+  color: #948979; /* secondary/subtle text */
+}
+
+[data-theme="dark"] ._btn-close {
+  color: #948979;
+}
+
+[data-theme="dark"] ._btn-close:hover {
+  background: #222831;
+  color: #dfd0b8;
+}
+
+[data-theme="dark"] ._form-group label {
+  color: #dfd0b8;
+}
+
+[data-theme="dark"] ._form-group input,
+[data-theme="dark"] ._form-group textarea {
+  background: #222831; /* input background */
+  border-color: #393e46; /* input border */
+  color: #dfd0b8; /* input text */
+}
+
+[data-theme="dark"] ._form-group input:focus,
+[data-theme="dark"] ._form-group textarea:focus {
+  border-color: #dfd0b8;
+  box-shadow: 0 0 0 3px rgba(223, 208, 184, 0.2);
+}
+
+[data-theme="dark"] ._form-group input:disabled,
+[data-theme="dark"] ._form-group textarea:disabled {
+  background: #393e46;
+  color: #948979;
+}
+
+[data-theme="dark"] ._form-actions {
+  border-top-color: #393e46;
+}
+
+[data-theme="dark"] ._btn-secondary {
+  background: #222831;
+  color: #dfd0b8;
+  border-color: #393e46;
+}
+
+[data-theme="dark"] ._btn-secondary:hover:not(:disabled) {
+  background: #393e46;
+}

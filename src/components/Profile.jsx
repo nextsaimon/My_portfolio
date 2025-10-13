@@ -3,8 +3,8 @@ import React from "react";
 import SocialIcons from "./SocialIcons";
 import profile_img from "../../public/profile-pic.jpg";
 import Image from "next/image";
-import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
-import FadeContent from "@/context/FadeContent/FadeContent";
+import AnimatedContent from "@/styles/AnimatedContent/AnimatedContent";
+import FadeContent from "@/styles/FadeContent/FadeContent";
 
 const Profile = () => {
   const handleNavClick = (targetId) => {
@@ -16,12 +16,8 @@ const Profile = () => {
   };
 
   return (
-    <section
-      id="profile"
-      className="flex flex-col items-center xl:flex-row xl:justify-center xl:gap-20 relative h-[calc(100vh-80px)]"
-      style={{ overflow: "hidden" }}
-    >
-      <div className="">
+    <section id="profile" style={{ overflow: "hidden" }}>
+      <div className="section__pic-container">
         <AnimatedContent
           distance={150}
           direction="vertical"
@@ -54,7 +50,7 @@ const Profile = () => {
         </AnimatedContent>
       </div>
 
-      <div className="section__text self-center text-center">
+      <div className="section__text">
         <AnimatedContent
           distance={150}
           direction="horizontal"
@@ -67,9 +63,7 @@ const Profile = () => {
           threshold={0.2}
           delay={0}
         >
-          <p className="section__text__p1 font-bold text-center ">
-            Hello, I&apos;m
-          </p>
+          <p className="section__text__p1 ">Hello, I&apos;m</p>
         </AnimatedContent>
         <FadeContent
           blur={true}
@@ -77,7 +71,7 @@ const Profile = () => {
           easing="ease-out"
           initialOpacity={0}
         >
-          <h1 className="title text-5xl text-center">Saimon</h1>
+          <h1 className="title">Saimon</h1>
         </FadeContent>
         <AnimatedContent
           distance={150}
@@ -91,11 +85,9 @@ const Profile = () => {
           threshold={0.2}
           delay={0}
         >
-          <p className="section__text__p2  text-[1.75rem] mb-4 font-black">
-            Full Stack Developer
-          </p>
+          <p className="section__text__p2">Full Stack Developer</p>
         </AnimatedContent>
-        <div className="btn-container flex justify-center gap-4 relative z-[1]">
+        <div className="btn-container">
           <AnimatedContent
             distance={150}
             direction="horizontal"
@@ -109,7 +101,7 @@ const Profile = () => {
             delay={0}
           >
             <button
-              className="btn btn-color-1 font-bold bg-[var(--btn-1-bg)] text-[var(--btn-1-text-color)] hover:bg-[var(--btn-1-bg-hover)] hover:cursor-pointer border-[0.1rem] border-[var(--border-color)] transition-all duration-300 ease-[ease] w-32 p-4 rounded-[var(--radius)]"
+              className="btn btn-color-1"
               id="btn1"
               onClick={() => handleNavClick("about")}
             >
@@ -129,7 +121,7 @@ const Profile = () => {
             delay={0}
           >
             <button
-              className="btn btn-color-2 font-bold bg-[var(--btn-2-bg)] text-[var(--btn-2-text)] hover:bg-[var(--btn-2-bg-hover)] hover:cursor-pointer border-[0.1rem] border-[var(--border-color)] transition-all duration-300 ease-[ease] w-[140px] p-4 rounded-[var(--radius)]"
+              className="btn btn-color-2"
               id="btn2"
               onClick={() => handleNavClick("contact")}
             >
@@ -149,11 +141,12 @@ const Profile = () => {
           threshold={0.2}
           delay={0}
         >
-          <div className="mt-5">
-            <SocialIcons />
-          </div>
+          <SocialIcons />
         </AnimatedContent>
       </div>
+      <a href="#about">
+        <i id="profile_ico" className="fas fa-arrow-down icon arrow"></i>
+      </a>
     </section>
   );
 };
