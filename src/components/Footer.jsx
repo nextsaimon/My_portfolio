@@ -1,27 +1,27 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
 
 const Footer = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleFooterClick = (targetId) => {
-    if (router.pathname !== "/") {
-      router.push("/");
-      setTimeout(() => {
-        document
-          .getElementById(targetId)
-          ?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+    if (pathname !== "/") {
+      router.push(`/#${targetId}`);
     } else {
       document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const handleProjectClick = () => {
-    router.push("/project");
+    if (pathname === "/project") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push("/project");
+    }
   };
 
   return (

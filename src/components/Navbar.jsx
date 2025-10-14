@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import React, { useState, useRef, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
 import ThemeToggleButton from "./ThemeToggleButton";
@@ -10,9 +9,29 @@ import ThemeToggleButton from "./ThemeToggleButton";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const navRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleNavClick = (targetId) => {
+    if (targetId === "project") {
+      if (pathname === "/project") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push("/project");
+      }
+    } else {
+      if (pathname !== "/") {
+        router.push(`/#${targetId}`);
+      } else {
+        document
+          .getElementById(targetId)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMenuOpen(false);
+  };
 
   // Close menu on outside click or scroll
   useEffect(() => {
@@ -36,26 +55,10 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    const projectsElement = document.getElementById("projects");
-    if (projectsElement) {
-      projectsElement.style.zIndex = isMenuOpen ? "-1" : "0";
-    }
-  }, [isMenuOpen]);
-
-  const handleNavClick = (targetId) => {
-    if (router.pathname !== "/") router.push("/");
-    setTimeout(() => {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-    setIsMenuOpen(false);
-  };
-
   return (
     <div
-      id="Home"
       ref={navRef}
-      className=" relative z-10 select-none font-['BBH_Sans_Bogle'] "
+      className="relative z-10 select-none font-['BBH_Sans_Bogle']"
     >
       {/* Desktop Navbar */}
       <AnimatedContent
@@ -71,51 +74,27 @@ const Navbar = () => {
         delay={0}
       >
         <FadeContent blur duration={900} easing="ease-out" initialOpacity={0}>
-          <nav
-            id="desktop-nav"
-            className="hidden lg:flex justify-around items-center h-[17vh]"
-          >
+          <nav className="hidden lg:flex justify-around items-center h-[17vh]">
             <div
-              className="cursor-pointer text-[2rem] select-none"
+              className="cursor-pointer text-5xl tracking-widest font-medium text-[var(--text-color)]"
               onClick={() => handleNavClick("Home")}
             >
-              <div className="text-5xl tracking-widest font-medium text-[var(--text-color)]">
-                SAIMON
-              </div>
+              SAIMON
             </div>
 
-            <ul className="flex gap-8 text-2xl list-none cursor-pointer">
-              <li>
-                <a className="navLink" onClick={() => handleNavClick("Home")}>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="navLink" onClick={() => handleNavClick("about")}>
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  className="navLink"
-                  onClick={() => handleNavClick("experience")}
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <Link href="/project" className="navLink" onClick={toggleMenu}>
-                  Project
-                </Link>
-              </li>
-              <li>
-                <a
-                  className="navLink"
-                  onClick={() => handleNavClick("contact")}
-                >
-                  Contact
-                </a>
-              </li>
+            <ul className="flex gap-8 text-2xl list-none">
+              {["Home", "about", "experience", "project", "contact"].map(
+                (item) => (
+                  <li key={item}>
+                    <button
+                      className="navLink"
+                      onClick={() => handleNavClick(item.toLowerCase())}
+                    >
+                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                    </button>
+                  </li>
+                )
+              )}
               <li>
                 <ThemeToggleButton />
               </li>
@@ -138,17 +117,12 @@ const Navbar = () => {
         delay={0}
       >
         <FadeContent blur duration={900} easing="ease-out" initialOpacity={0}>
-          <nav
-            id="hamburger-nav"
-            className="flex lg:hidden justify-between items-center h-[17vh] px-6"
-          >
+          <nav className="flex lg:hidden justify-between items-center h-[17vh] px-6">
             <div
-              className="cursor-pointer text-[2rem] select-none"
+              className="cursor-pointer text-5xl tracking-widest font-medium text-[var(--text-color)]"
               onClick={() => handleNavClick("Home")}
             >
-              <div className="text-5xl tracking-widest font-medium  text-[var(--text-color)]">
-                SAIMON
-              </div>
+              SAIMON
             </div>
 
             <div className="relative inline-block">
@@ -186,48 +160,19 @@ const Navbar = () => {
                     : "opacity-0 -translate-y-4 pointer-events-none"
                 }`}
               >
-                <li>
-                  <a
-                    className="navLink block text-center text-2xl py-2.5"
-                    onClick={() => handleNavClick("Home")}
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink block text-center text-2xl py-2.5"
-                    onClick={() => handleNavClick("about")}
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink block text-center text-2xl py-2.5"
-                    onClick={() => handleNavClick("experience")}
-                  >
-                    Experience
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    href="/project"
-                    className="navLink block text-center text-2xl py-2.5"
-                    onClick={toggleMenu}
-                  >
-                    Project
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    className="navLink block text-center text-2xl py-2.5"
-                    onClick={() => handleNavClick("contact")}
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li className="flex py-2">
+                {["Home", "about", "experience", "project", "contact"].map(
+                  (item) => (
+                    <li key={item}>
+                      <button
+                        className="navLink block text-center text-2xl py-2.5 w-full"
+                        onClick={() => handleNavClick(item.toLowerCase())}
+                      >
+                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                      </button>
+                    </li>
+                  )
+                )}
+                <li className="flex py-2 justify-center">
                   <ThemeToggleButton />
                 </li>
               </ul>
