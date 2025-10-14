@@ -85,21 +85,24 @@ const Navbar = () => {
             </div>
 
             <ul className="flex gap-8 text-2xl list-none cursor-pointer">
-              {[
-                { name: "Home", id: "Home" },
-                { name: "About", id: "about" },
-                { name: "Experience", id: "experience" },
-              ].map((link) => (
-                <li key={link.id}>
-                  <a
-                    className="navLink"
-                    onClick={() => handleNavClick(link.id)}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-
+              <li>
+                <a className="navLink" onClick={() => handleNavClick("Home")}>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a className="navLink" onClick={() => handleNavClick("about")}>
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  className="navLink"
+                  onClick={() => handleNavClick("experience")}
+                >
+                  Experience
+                </a>
+              </li>
               <li>
                 <Link href="/project" className="navLink" onClick={toggleMenu}>
                   Project
@@ -149,7 +152,7 @@ const Navbar = () => {
             </div>
 
             <div className="relative inline-block">
-              {/* ✅ Fixed Hamburger Icon */}
+              {/* Hamburger Icon */}
               <div
                 className="relative w-8 h-6 cursor-pointer transition-all duration-300"
                 onClick={toggleMenu}
@@ -183,34 +186,42 @@ const Navbar = () => {
                     : "opacity-0 -translate-y-4 pointer-events-none"
                 }`}
               >
-                {[
-                  { name: "Home", id: "Home" },
-                  { name: "About", id: "about" },
-                  { name: "Experience", id: "experience" },
-                ].map((link) => (
-                  <li key={link.id}>
-                    <a
-                      className={`navLink block text-center text-2xl py-2.5`}
-                      onClick={() => handleNavClick(link.id)}
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-
+                <li>
+                  <a
+                    className="navLink block text-center text-2xl py-2.5"
+                    onClick={() => handleNavClick("Home")}
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="navLink block text-center text-2xl py-2.5"
+                    onClick={() => handleNavClick("about")}
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="navLink block text-center text-2xl py-2.5"
+                    onClick={() => handleNavClick("experience")}
+                  >
+                    Experience
+                  </a>
+                </li>
                 <li>
                   <Link
                     href="/project"
-                    className={`navLink block text-center text-2xl py-2.5`}
+                    className="navLink block text-center text-2xl py-2.5"
                     onClick={toggleMenu}
                   >
                     Project
                   </Link>
                 </li>
-
                 <li>
                   <a
-                    className={`navLink block text-center text-2xl py-2.5`}
+                    className="navLink block text-center text-2xl py-2.5"
                     onClick={() => handleNavClick("contact")}
                   >
                     Contact

@@ -138,7 +138,7 @@ const Experience = () => {
     <section
       id="experience"
       style={{ overflow: "hidden" }}
-      className="mb-10 lg:mb-0 lg:h-[100vh]"
+      className="mb-10 lg:mb-0 min-h-[100vh]"
     >
       <AnimatedContent
         distance={150}
@@ -195,7 +195,7 @@ const Experience = () => {
                   </h2>
                 </FadeContent>
               </AnimatedContent>
-              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10">
+              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10  overflow-hidden">
                 {renderSkills(frontendSkills)}
               </div>
             </div>
@@ -231,8 +231,7 @@ const Experience = () => {
                   </h2>
                 </FadeContent>
               </AnimatedContent>
-
-              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10">
+              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10 overflow-hidden">
                 {renderSkills(otherSkills)}
               </div>
             </div>

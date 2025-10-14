@@ -7,28 +7,28 @@ import FadeContent from "@/context/FadeContent/FadeContent";
 const Footer = () => {
   const router = useRouter();
 
-  const links = [
-    { name: "Home", id: "Home" },
-    { name: "About", id: "about" },
-    { name: "Experience", id: "experience" },
-    { name: "Project", action: () => router.push("/project") },
-    { name: "Contact", id: "contact" },
-  ];
-
-  const handleClick = (link) => {
-    if (link.action) return link.action();
+  const handleFooterClick = (targetId) => {
     if (router.pathname !== "/") {
       router.push("/");
       setTimeout(() => {
-        document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById(targetId)
+          ?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     } else {
-      document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  const handleProjectClick = () => {
+    router.push("/project");
+  };
+
   return (
-    <footer className="overflow-hidden select-none text-center py-6 font-['BBH_Sans_Bogle']">
+    <footer
+      id="Footer"
+      className="overflow-hidden select-none text-center py-6 font-['BBH_Sans_Bogle']"
+    >
       <AnimatedContent
         distance={150}
         direction="vertical"
@@ -49,13 +49,43 @@ const Footer = () => {
         >
           <nav>
             <ul className="nav-links flex flex-col lg:flex-row justify-center gap-6 flex-wrap select-none">
-              {links.map((link) => (
-                <li key={link.name} className="cursor-pointer">
-                  <a className="navLink" onClick={() => handleClick(link)}>
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <li className="cursor-pointer">
+                <a
+                  className="navLink"
+                  onClick={() => handleFooterClick("Home")}
+                >
+                  Home
+                </a>
+              </li>
+              <li className="cursor-pointer">
+                <a
+                  className="navLink"
+                  onClick={() => handleFooterClick("about")}
+                >
+                  About
+                </a>
+              </li>
+              <li className="cursor-pointer">
+                <a
+                  className="navLink"
+                  onClick={() => handleFooterClick("experience")}
+                >
+                  Experience
+                </a>
+              </li>
+              <li className="cursor-pointer">
+                <a className="navLink" onClick={handleProjectClick}>
+                  Project
+                </a>
+              </li>
+              <li className="cursor-pointer">
+                <a
+                  className="navLink"
+                  onClick={() => handleFooterClick("contact")}
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </nav>
         </FadeContent>

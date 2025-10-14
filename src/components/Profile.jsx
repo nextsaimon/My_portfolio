@@ -41,11 +41,11 @@ const Profile = () => {
             initialOpacity={0}
           >
             <Image
-              className="profile-pic"
+              className="profile-pic w-[300px] lg:w-[450px]"
               src={profile_img}
               alt="Saimon's Profile"
-              width={450} // Default width
-              height={450} // Default height
+              // width={450} // Default width
+              // height={450} // Default height
               placeholder="blur" // Blur effect while loading
               quality={100}
               style={{ objectFit: "cover", borderRadius: "50%" }} // Optional: rounded shape
@@ -109,7 +109,7 @@ const Profile = () => {
             delay={0}
           >
             <button
-              className="btn btn-color-1 font-bold bg-[var(--btn-1-bg)] text-[var(--btn-1-text-color)] hover:bg-[var(--btn-1-bg-hover)] hover:cursor-pointer border-[0.1rem] border-[var(--border-color)] transition-all duration-300 ease-[ease] w-32 p-4 rounded-[var(--radius)]"
+              className="btn btn-color-1 font-bold bg-[var(--btn-1-bg)] text-[var(--btn-1-text-color)] hover:bg-[var(--btn-1-bg-hover)] hover:cursor-pointer border-[0.1rem] border-[var(--border-color)] transition-all duration-300 ease-[ease] w-36 p-2 lg:p-3 rounded-[var(--radius)]"
               id="btn1"
               onClick={() => handleNavClick("about")}
             >
@@ -129,7 +129,7 @@ const Profile = () => {
             delay={0}
           >
             <button
-              className="btn btn-color-2 font-bold bg-[var(--btn-2-bg)] text-[var(--btn-2-text)] hover:bg-[var(--btn-2-bg-hover)] hover:cursor-pointer border-[0.1rem] border-[var(--border-color)] transition-all duration-300 ease-[ease] w-[140px] p-4 rounded-[var(--radius)]"
+              className="btn btn-color-2 font-bold bg-[var(--btn-2-bg)] text-[var(--btn-2-text)] hover:bg-[var(--btn-2-bg-hover)] hover:cursor-pointer border-[0.1rem] border-[var(--border-color)] transition-all duration-300 ease-[ease] w-36 p-2 lg:p-3 rounded-[var(--radius)]"
               id="btn2"
               onClick={() => handleNavClick("contact")}
             >

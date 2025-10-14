@@ -33,7 +33,11 @@ const About = () => {
   const experience = calculateExperience(2021) - 1; // Calculate years of experience since 2021
 
   return (
-    <section id="about" style={{ overflow: "hidden" }} className=" relative h-[100vh]">
+    <section
+      id="about"
+      style={{ overflow: "hidden" }}
+      className=" relative min-h-[100vh] mb-[50px] lg:mb-0 "
+    >
       <AnimatedContent
         distance={150}
         direction="vertical"
@@ -125,7 +129,7 @@ const About = () => {
             easing="ease-out"
             initialOpacity={0}
           >
-            <div className="text-container border-8 border-[var(--border-color)] p-2 border-t-0 border-r-0 border-b-0 mx-12 lg:mx-4 xl:mx-0">
+            <div className="text-container border-8 border-[var(--border-color)]  border-t-0 border-r-0 border-b-0 mx-4 p-2 xl:mx-0">
               <p>It&apos;s me......</p>
               <h1> Saimon 🙋‍♂️</h1>
               <p>💻 A junior Full Stack developer. 🌐</p>
