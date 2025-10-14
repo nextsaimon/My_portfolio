@@ -169,7 +169,7 @@ const Project = () => {
                               key={i}
                               text={btn.name}
                               link={btn.link}
-                              className="border border-[var(--border-color)] px-2 py-1 w-[100px] text-[var(--text-color)] hover:text-[var(--secondary-text-color)] hover:bg-[var(--bg-color)] hover:shadow transition-all ease-in-out duration-300 rounded-full"
+                              className="border border-[var(--border-color)] px-2 py-1 font-bold text-[var(--text-color)] hover:text-[var(--secondary-text-color)] hover:bg-[var(--bg-color)] hover:shadow transition-all ease-in-out duration-300 rounded-full"
                             />
                           ))}
                         </div>
