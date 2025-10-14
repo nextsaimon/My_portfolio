@@ -27,9 +27,9 @@ const Footer = () => {
   return (
     <footer
       id="Footer"
-      className="overflow-hidden select-none text-center py-6 font-['BBH_Sans_Bogle']"
+      className="overflow-hidden select-none text-center py-6 my-4 font-['BBH_Sans_Bogle']"
     >
-      <AnimatedContent
+      {/* <AnimatedContent
         distance={150}
         direction="vertical"
         reverse={true}
@@ -46,7 +46,7 @@ const Footer = () => {
           duration={900}
           easing="ease-out"
           initialOpacity={0}
-        >
+        > */}
           <nav>
             <ul className="nav-links flex flex-col lg:flex-row justify-center gap-6 flex-wrap select-none">
               <li className="cursor-pointer">
@@ -88,8 +88,8 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
-        </FadeContent>
-      </AnimatedContent>
+        {/* </FadeContent>
+      </AnimatedContent> */}
       <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 select-none">
         &#169; {new Date().getFullYear()} Saimon. All Rights Reserved.
       </p>
