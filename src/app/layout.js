@@ -11,6 +11,10 @@ export const metadata = {
 
   metadataBase: new URL("https://nextsaimon.com"),
 
+  alternates: {
+    canonical: "https://nextsaimon.com",
+  },
+  
   openGraph: {
     title: "Saimon – Portfolio",
     description:
@@ -47,29 +51,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-         <ThemeProvider>
+        <ThemeProvider>
           <Navbar />
           {children}
           <Footer />
-          </ThemeProvider>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Person",
-                name: "Saimon",
-                url: "https://nextsaimon.com",
-                image: "https://nextsaimon.com/favicon.ico",
-                sameAs: [
-                  "https://www.facebook.com/nextsaimon",
-                  "https://www.instagram.com/nextsaimon/",
-                  "https://github.com/nextsaimon/",
-                ],
-              }),
-            }}
-          />
-        
+        </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Saimon",
+              url: "https://nextsaimon.com",
+              image: "https://nextsaimon.com/favicon.ico",
+              sameAs: [
+                "https://www.facebook.com/nextsaimon",
+                "https://www.instagram.com/nextsaimon/",
+                "https://github.com/nextsaimon/",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );
