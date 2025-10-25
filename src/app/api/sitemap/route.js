@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+export const runtime = "edge";
+
 const DOMAIN = process.env.SITE_DOMAIN || "https://nextsaimon.com";
 const APP_DIR = path.join(process.cwd(), "src", "app");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
