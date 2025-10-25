@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://nextsaimon.com
-
-# Sitemaps
-Sitemap: https://nextsaimon.com/sitemap.xml
