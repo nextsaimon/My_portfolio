@@ -12,6 +12,7 @@ import project3 from "@/../public/project-3.png";
 import project4 from "@/../public/project-4.png";
 import project5 from "@/../public/project-5.png";
 import project6 from "@/../public/project-6.png";
+import project7 from "@/../public/project-7.png";
 
 const Project = () => {
   const [loading, setLoading] = useState(true);
@@ -82,6 +83,16 @@ const Project = () => {
         {
           name: "GitHub",
           link: "https://github.com/nextSaimon/Auto_Wifi_Changer",
+        },
+      ],
+    },
+    {
+      title: "TOTP Manager",
+      img: project7,
+      buttons: [
+        {
+          name: "GitHub",
+          link: "https://github.com/nextsaimon/totp-manager",
         },
       ],
     },
