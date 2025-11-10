@@ -85,6 +85,7 @@ body {
 .markdown-body {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
+  line-height: 2!important;
 }
 
 .markdown-body a {
