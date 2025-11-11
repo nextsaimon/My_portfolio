@@ -3,8 +3,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/button";
-import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
-import FadeContent from "@/context/FadeContent/FadeContent";
 import { ThemeContext } from "@/context/ThemeContext";
 
 import { marked } from "marked";
@@ -125,66 +123,57 @@ const ProjectPage = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-[1280px]">
-      <FadeContent
-        blur={true}
-        duration={900}
-        easing="ease-out"
-        initialOpacity={0}
-      >
-        <div className="flex flex-col md:flex-row gap-8 md:items-start">
-          {/* Left side info */}
-          <div className="md:w-1/4 sticky top-8">
-            {project.img && (
-              <div>
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  className="rounded-lg shadow-lg w-full"
-                  placeholder="blur"
-                  quality={100}
-                />
-                <div className="mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    {project.title}
-                  </h1>
-                  <p className="text-[var(--secondary-text-color)] mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    {project.buttons?.map((btn, i) => (
-                      <Button
-                        key={i}
-                        text={btn.name}
-                        link={btn.link}
-                        className={`px-4 py-2 text-sm font-semibold rounded-md w-full text-center transition-all duration-200 ${
-                          btn.name === "GitHub"
-                            ? "bg-green-600 hover:bg-green-700 text-white"
-                            : "border border-[var(--border-color)] hover:bg-[var(--border-color)]"
-                        }`}
-                      />
-                    ))}
-                  </div>
+    <div className="container mx-0 md:mx-auto px-4 py-8 max-w-[1280px]">
+      <div className="flex flex-col lg:flex-row gap-8 md:items-center lg:items-start">
+        {/* Left side info */}
+        <div className="md:w-1/4 lg:sticky top-8">
+          {project.img && (
+            <div>
+              <Image
+                src={project.img}
+                alt={project.title}
+                className="rounded-lg shadow-lg w-full"
+                placeholder="blur"
+                quality={100}
+              />
+              <div className="mt-4">
+                <h1 className="text-2xl font-semibold mb-2">{project.title}</h1>
+                <p className="text-[var(--secondary-text-color)] mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-col gap-2">
+                  {project.buttons?.map((btn, i) => (
+                    <Button
+                      key={i}
+                      text={btn.name}
+                      link={btn.link}
+                      className={`px-4 py-2 text-sm font-semibold rounded-md w-full text-center transition-all duration-200 ${
+                        btn.name === "GitHub"
+                          ? "bg-green-600 hover:bg-green-700 text-white"
+                          : "border border-[var(--border-color)] hover:bg-[var(--border-color)]"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
-            )}
-          </div>
-
-          {/* README Section */}
-          <div className="md:w-3/4">
-            {renderedReadme && (
-              <div
-                className={`markdown-body p-8 ${
-                  effectiveTheme === "dark"
-                    ? "dark github-markdown-dark dark-markdown"
-                    : "light github-markdown-light light-markdown"
-                }`}
-                dangerouslySetInnerHTML={{ __html: renderedReadme }}
-              />
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      </FadeContent>
+
+        {/* README Section */}
+        <div className="md:w-3/4">
+          {renderedReadme && (
+            <div
+              className={`markdown-body md:p-8 ${
+                effectiveTheme === "dark"
+                  ? "dark github-markdown-dark dark-markdown"
+                  : "light github-markdown-light light-markdown"
+              }`}
+              dangerouslySetInnerHTML={{ __html: renderedReadme }}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 };
