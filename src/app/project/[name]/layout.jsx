@@ -1,7 +1,14 @@
 import projectData from "@/project_data.json";
 
+async function getProject(name) {
+  if (!name) return null;
+  return projectData.find((p) => p.name.toLowerCase() === name.toLowerCase());
+}
+
 export async function generateMetadata({ params }) {
-  const project = projectData.find((p) => p.name === params.name);
+  const { name } = await params;
+
+  const project = await getProject(name);
 
   if (project) {
     return {

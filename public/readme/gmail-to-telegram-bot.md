@@ -146,8 +146,4 @@ You can add an optional fourth parameter to send the email multiple times.
 ## License
 
 This project is open-source and available under the [MIT License](https://github.com/nextSaimon/Gmail-to-Telegram-Bot?tab=MIT-1-ov-file).
------
 
-## License
-
-This project is open-source and available under the [MIT License](https://github.com/nextsaimon/Gmail-to-Telegram-Bot/blob/main/LICENSE).
