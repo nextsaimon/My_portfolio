@@ -2,6 +2,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
+import NextTopLoader from "nextjs-toploader";
 export const metadata = {
   title: "Saimon – Portfolio",
   description:
@@ -14,7 +15,7 @@ export const metadata = {
   alternates: {
     canonical: "https://nextsaimon.com",
   },
-  
+
   openGraph: {
     title: "Saimon – Portfolio",
     description:
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <ThemeProvider>
+          <NextTopLoader />
           <Navbar />
           {children}
           <Footer />
