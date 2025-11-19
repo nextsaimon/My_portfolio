@@ -3,7 +3,7 @@ import { FaGraduationCap } from "react-icons/fa";
 import { FaBriefcase } from "react-icons/fa";
 import Image from "next/image";
 import React from "react";
-import about_img from "../../public/about-pic.jpg";
+import about_img from "../../public/saimon.png";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
 
@@ -69,7 +69,7 @@ const About = () => {
             initialOpacity={0}
           >
             <Image
-              className="about-pic rounded-[2rem]"
+              className="about-pic rounded-[100%]"
               src={about_img}
               alt="Saimon's Profile"
               width={400}

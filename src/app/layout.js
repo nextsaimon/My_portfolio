@@ -3,6 +3,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
 import NextTopLoader from "nextjs-toploader";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 export const metadata = {
   title: "Saimon – Portfolio",
   description:
@@ -56,6 +59,8 @@ export default function RootLayout({ children }) {
           <NextTopLoader />
           <Navbar />
           {children}
+          <Analytics />
+          <SpeedInsights /> 
           <Footer />
         </ThemeProvider>
         <script
