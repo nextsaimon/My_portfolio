@@ -3,8 +3,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
 import NextTopLoader from "nextjs-toploader";
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "Saimon – Portfolio",
@@ -50,6 +51,7 @@ export const metadata = {
     "google-site-verification": "cvta9GHpsvTp2V2Vt8uFH3zrccVxxKvDzwI68IesufE",
   },
 };
+const gaId = process.env.GAID || "";
 
 export default function RootLayout({ children }) {
   return (
@@ -60,7 +62,8 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Analytics />
-          <SpeedInsights /> 
+          <SpeedInsights />
+          <GoogleAnalytics gaId={gaId} />
           <Footer />
         </ThemeProvider>
         <script

@@ -77,7 +77,7 @@ const Navbar = () => {
           <nav className="hidden lg:flex justify-around items-center h-[17vh]">
             <div
               className="cursor-pointer text-5xl tracking-widest font-medium text-[var(--text-color)]"
-              onClick={() => handleNavClick("Home")}
+              onClick={() => router.push("/")}
             >
               SAIMON
             </div>
