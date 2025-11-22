@@ -13,6 +13,8 @@ import { AiFillHtml5 } from "react-icons/ai";
 import React from "react";
 import { SiAdobephotoshop } from "react-icons/si";
 import { SiNextdotjs } from "react-icons/si";
+import { SiMongodb, SiAppwrite, SiFirebase, SiCloudflare, SiVercel, SiNodedotjs } from "react-icons/si";
+import { FaLock } from "react-icons/fa";
 import { RiFileExcel2Line } from "react-icons/ri";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
@@ -105,6 +107,75 @@ const Experience = () => {
       level: "Intermediate",
       icon: <FaRegFilePowerpoint />,
       class: "fa-solid fa-file-powerpoint",
+    },
+  ];
+
+  const techStack = [
+    {
+      name: "NextJS",
+      level: "Intermediate",
+      icon: <SiNextdotjs />,
+      class: "fa-brands fa-react",
+    },
+    {
+      name: "React",
+      level: "Intermediate",
+      icon: <DiReact />,
+      class: "fa-brands fa-react",
+    },
+    {
+      name: "Tailwind",
+      level: "Intermediate",
+      icon: <SiTailwindcss />,
+      class: "fa-brands fa-react",
+    },
+    {
+      name: "MongoDB",
+      level: "Intermediate",
+      icon: <SiMongodb />,
+      class: "fa-brands fa-envira",
+    },
+    {
+      name: "BetterAuth",
+      level: "Intermediate",
+      icon: <FaLock />,
+      class: "fa-solid fa-lock",
+    },
+    {
+      name: "Appwrite",
+      level: "Intermediate",
+      icon: <SiAppwrite />,
+      class: "fa-solid fa-server",
+    },
+    {
+      name: "Firebase",
+      level: "Intermediate",
+      icon: <SiFirebase />,
+      class: "fa-brands fa-google",
+    },
+    {
+      name: "Cloudflare",
+      level: "Intermediate",
+      icon: <SiCloudflare />,
+      class: "fa-brands fa-cloudflare",
+    },
+    {
+      name: "Vercel",
+      level: "Intermediate",
+      icon: <SiVercel />,
+      class: "fa-solid fa-up-right-from-square",
+    },
+    {
+      name: "NodeJS",
+      level: "Intermediate",
+      icon: <SiNodedotjs />,
+      class: "fa-brands fa-node",
+    },
+    {
+      name: "Python",
+      level: "Intermediate",
+      icon: <FaPython />,
+      class: "fa-brands fa-python",
     },
   ];
 
@@ -233,6 +304,44 @@ const Experience = () => {
               </AnimatedContent>
               <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10 overflow-hidden">
                 {renderSkills(otherSkills)}
+              </div>
+            </div>
+          </FadeContent>
+        </div>
+
+        <div className="about-containers flex flex-col lg:flex-row mx-6 gap-8 my-8 justify-center items-center">
+          <FadeContent
+            blur={true}
+            duration={1000}
+            easing="ease-out"
+            initialOpacity={0}
+          >
+            <div className="details-container mt-8 w-full max-w-[1000px] p-6 flex-1 bg-[var(--card-bg-color)] rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] text-center">
+              <AnimatedContent
+                distance={150}
+                direction="horizontal"
+                reverse={false}
+                duration={1.2}
+                ease="bounce.out"
+                initialOpacity={0.2}
+                animateOpacity
+                scale={0.3}
+                threshold={0.2}
+                delay={0}
+              >
+                <FadeContent
+                  blur={true}
+                  duration={1000}
+                  easing="ease-out"
+                  initialOpacity={0}
+                >
+                  <h2 className="experience-sub-title text-[var(--secondary-text-color)] font-semibold text-[1.75rem] mb-8 text-xl">
+                    Tech Stack
+                  </h2>
+                </FadeContent>
+              </AnimatedContent>
+              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10 overflow-hidden">
+                {renderSkills(techStack)}
               </div>
             </div>
           </FadeContent>
