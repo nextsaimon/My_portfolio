@@ -1,156 +1,79 @@
 "use client";
-import { SiJavascript } from "react-icons/si";
-import { FaRegFilePowerpoint } from "react-icons/fa";
-import { BsFillFileEarmarkWordFill } from "react-icons/bs";
-import { SiAdobeillustrator } from "react-icons/si";
-import { FaPython } from "react-icons/fa";
-import { AiFillGithub } from "react-icons/ai";
-import { BsFillBootstrapFill } from "react-icons/bs";
-import { SiTailwindcss } from "react-icons/si";
-import { DiReact } from "react-icons/di";
-import { DiCss3 } from "react-icons/di";
-import { AiFillHtml5 } from "react-icons/ai";
+
 import React from "react";
-import { SiAdobephotoshop } from "react-icons/si";
-import { SiNextdotjs } from "react-icons/si";
-import { RiFileExcel2Line } from "react-icons/ri";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiMongodb,
+  SiGithub,
+  SiAppwrite,
+  SiFirebase,
+  SiCloudflare,
+  SiVercel,
+  SiNodedotjs,
+} from "react-icons/si";
+import { DiReact } from "react-icons/di";
+import { FaPython, FaLock } from "react-icons/fa";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
 
 const Experience = () => {
-  const frontendSkills = [
-    {
-      name: "HTML",
-      level: "Experienced",
-      icon: <AiFillHtml5 />,
-      class: "fa-brands fa-html5",
-    },
-    {
-      name: "CSS",
-      level: "Experienced",
-      icon: <DiCss3 />,
-      class: "fa-brands fa-css3",
-    },
-    {
-      name: "JavaScript",
-      level: "Intermediate",
-      icon: <SiJavascript />,
-      class: "fa-brands fa-js",
-    },
-    {
-      name: "React",
-      level: "Intermediate",
-      icon: <DiReact />,
-      class: "fa-brands fa-react",
-    },
-    {
-      name: "NextJS",
-      level: "Intermediate",
-      icon: <SiNextdotjs />,
-      class: "fa-brands fa-react",
-    },
-    {
-      name: "TailwindCSS",
-      level: "Intermediate",
-      icon: <SiTailwindcss />,
-      class: "fa-brands fa-react",
-    },
-    {
-      name: "Bootstrap",
-      level: "Intermediate",
-      icon: <BsFillBootstrapFill />,
-      class: "fa-brands fa-bootstrap",
-    },
-    {
-      name: "Git",
-      level: "Intermediate",
-      icon: <AiFillGithub />,
-      class: "fa-solid fa-code-branch",
-    },
-  ];
-
-  const otherSkills = [
-    {
-      name: "Python",
-      level: "Intermediate",
-      icon: <FaPython />,
-      class: "fa-brands fa-python",
-    },
-    {
-      name: "Photoshop",
-      level: "Intermediate",
-      icon: <SiAdobephotoshop />,
-      class: "fa-regular fa-image",
-    },
-    {
-      name: "Illustrator",
-      level: "Intermediate",
-      icon: <SiAdobeillustrator />,
-      class: "fa-solid fa-bezier-curve",
-    },
-    {
-      name: "Excel",
-      level: "Experienced",
-      icon: <RiFileExcel2Line />,
-      class: "fa-solid fa-table",
-    },
-    {
-      name: "Word",
-      level: "Experienced",
-      icon: <BsFillFileEarmarkWordFill />,
-      class: "fa-regular fa-file-word",
-    },
-    {
-      name: "PowerPoint",
-      level: "Intermediate",
-      icon: <FaRegFilePowerpoint />,
-      class: "fa-solid fa-file-powerpoint",
-    },
+  const techStack = [
+    { name: "NextJS", icon: <SiNextdotjs className="text-black" /> },
+    { name: "React", icon: <DiReact className="text-[#61DAFB]" /> },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+    { name: "NodeJS", icon: <SiNodedotjs className="text-[#339933]" /> },
+    { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
+    { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+    { name: "GitHub", icon: <SiGithub className="text-[#000000]" /> },
+    { name: "Appwrite", icon: <SiAppwrite className="text-[#F02E65]" /> },
+    { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" /> },
+    { name: "BetterAuth", icon: <FaLock className="text-gray-500" /> },
+    { name: "Vercel", icon: <SiVercel className="text-black" /> },
+    { name: "Cloudflare", icon: <SiCloudflare className="text-[#F38020]" /> },
   ];
 
   const renderSkills = (skills) =>
     skills.map((skill, index) => (
       <AnimatedContent
-        distance={150}
-        direction="horizontal"
-        reverse={index % 2 === 0 ? false : true}
-        duration={1.2}
-        ease="bounce.out"
-        initialOpacity={0.2}
-        animateOpacity
-        scale={0.3}
-        threshold={0.2}
-        delay={0}
         key={index}
-        Zindex={false}
+        distance={50}
+        direction="bottom"
+        delay={index * 0.05}
+        duration={0.5}
+        ease="ease-out"
+        initialOpacity={0}
+        scale={0.8}
+        threshold={0.1}
       >
-        <article className="flex justify-around w-40 gap-2">
-          <i className={`${skill.class} icon`}>{skill.icon}</i>
-          <div>
-            <h3>{skill.name}</h3>
-            <p>{skill.level}</p>
+        {/* Skill Card */}
+        <div className="relative flex flex-col items-center justify-center p-4 h-36 w-36 md:h-40 md:w-40 rounded-2xl bg-[var(--card-bg-color)] border border-[var(--border-color)] shadow-sm ">
+          <div
+            className="text-5xl md:text-6xl mb-4"
+          >
+            {skill.icon}
           </div>
-        </article>
+
+          {/* Skill Name */}
+          <h3 className="text-sm font-semibold text-[var(--secondary-text-color)] tracking-wide transition-colors duration-300">
+            {skill.name}
+          </h3>
+        </div>
       </AnimatedContent>
     ));
 
   return (
     <section
       id="experience"
-      style={{ overflow: "hidden" }}
-      className="mb-10 lg:mb-0 min-h-[100vh]"
+      className="py-20 min-h-[80vh] flex flex-col justify-center items-center overflow-hidden"
     >
       <AnimatedContent
-        distance={150}
+        distance={100}
         direction="vertical"
         reverse={true}
-        duration={1.2}
-        ease="bounce.out"
-        initialOpacity={0.2}
-        animateOpacity
-        scale={0.3}
-        threshold={0.2}
-        delay={0}
+        duration={1}
+        ease="ease-out"
+        initialOpacity={0}
       >
         <FadeContent
           blur={true}
@@ -158,84 +81,18 @@ const Experience = () => {
           easing="ease-out"
           initialOpacity={0}
         >
-          <p className="section__text__p1 text-center">Explore My</p>
-          <h1 className="title text-5xl text-center">Experience</h1>
+          <div className="text-center mb-16">
+            <p className="text-lg font-medium text-[var(--secondary-text-color)] mb-2">
+              My Tools & Technologies
+            </p>
+            <h1 className="text-5xl font-bold">Skills</h1>
+          </div>
         </FadeContent>
       </AnimatedContent>
 
-      <div className="experience-details-container flex justify-center flex-col mt-8">
-        <div className="about-containers flex flex-col lg:flex-row mx-6 gap-8 my-8 justify-center items-center">
-          <FadeContent
-            blur={true}
-            duration={1000}
-            easing="ease-out"
-            initialOpacity={0}
-          >
-            <div className="details-container mt-8 max-w-[600px] p-6 flex-1 bg-[var(--card-bg-color)] rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] text-center">
-              <AnimatedContent
-                distance={150}
-                direction="horizontal"
-                reverse={false}
-                duration={1.2}
-                ease="bounce.out"
-                initialOpacity={0.2}
-                animateOpacity
-                scale={0.3}
-                threshold={0.2}
-                delay={0}
-              >
-                <FadeContent
-                  blur={true}
-                  duration={1000}
-                  easing="ease-out"
-                  initialOpacity={0}
-                >
-                  <h2 className="experience-sub-title text-[var(--secondary-text-color)] font-semibold text-[1.75rem] mb-8 text-xl">
-                    Full-Stack Development
-                  </h2>
-                </FadeContent>
-              </AnimatedContent>
-              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10  overflow-hidden">
-                {renderSkills(frontendSkills)}
-              </div>
-            </div>
-          </FadeContent>
-          <FadeContent
-            blur={true}
-            duration={1000}
-            easing="ease-out"
-            initialOpacity={0}
-          >
-            {" "}
-            <div className="details-container mt-8 max-w-[600px] p-6 flex-1 bg-[var(--card-bg-color)] rounded-[var(--radius)] border-[0.1rem] border-[var(--border-color)] text-center">
-              <AnimatedContent
-                distance={150}
-                direction="horizontal"
-                reverse={false}
-                duration={1.2}
-                ease="bounce.out"
-                initialOpacity={0.2}
-                animateOpacity
-                scale={0.3}
-                threshold={0.2}
-                delay={0}
-              >
-                <FadeContent
-                  blur={true}
-                  duration={1000}
-                  easing="ease-out"
-                  initialOpacity={0}
-                >
-                  <h2 className="experience-sub-title text-[var(--secondary-text-color)] font-semibold text-[1.75rem] mb-8 text-xl">
-                    Other Skills
-                  </h2>
-                </FadeContent>
-              </AnimatedContent>
-              <div className="article-container flex justify-around text-left flex-wrap flex-row gap-10 overflow-hidden">
-                {renderSkills(otherSkills)}
-              </div>
-            </div>
-          </FadeContent>
+      <div className="w-full max-w-[1100px] px-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+          {renderSkills(techStack)}
         </div>
       </div>
     </section>
