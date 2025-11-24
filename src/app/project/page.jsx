@@ -18,22 +18,8 @@ const Project = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Dynamically import images based on the img field in projectData
-  const imageMap = {
-    "project-1.png": require("@/../public/project-1.png"),
-    "project-2.png": require("@/../public/project-2.png"),
-    "project-3.png": require("@/../public/project-3.png"),
-    "project-4.png": require("@/../public/project-4.png"),
-    "project-5.png": require("@/../public/project-5.png"),
-    "project-6.png": require("@/../public/project-6.png"),
-    "project-7.png": require("@/../public/project-7.png"),
-  };
-
-  // Attach image objects to each project
-  const projects = projectData.map((p) => ({
-    ...p,
-    img: imageMap[p.img] || null,
-  }));
+  // No Need for imageMap or projects mapping anymore.
+  // We use projectData directly.
 
   return (
     <div id="projects" className="relative overflow-hidden flex flex-col">
@@ -63,7 +49,7 @@ const Project = () => {
 
       <div className="container mx-auto mt-4">
         <div className="flex justify-center flex-wrap gap-3 w-full max-w-5xl relative mx-auto p-1">
-          {projects.map((project, index) => (
+          {projectData.map((project, index) => (
             <div className="w-full max-w-xs" key={index}>
               <Link href={`/project/${project.name}`} passHref>
                 <AnimatedContent
@@ -95,13 +81,14 @@ const Project = () => {
                     ) : (
                       <div>
                         {/* Project image */}
-                        <div className="w-full h-[300px] overflow-hidden">
+                        <div className="w-full h-[300px] overflow-hidden relative">
                           {project.img && (
                             <Image
                               className="w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
                               src={project.img}
                               alt={project.title}
-                              placeholder="blur"
+                              width={500} // Must specify width/height for string paths
+                              height={300}
                               quality={100}
                             />
                           )}

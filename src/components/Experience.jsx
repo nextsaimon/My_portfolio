@@ -1,36 +1,24 @@
 "use client";
 
 import React from "react";
-import {
-  SiNextdotjs,
-  SiTailwindcss,
-  SiMongodb,
-  SiGithub,
-  SiAppwrite,
-  SiFirebase,
-  SiCloudflare,
-  SiVercel,
-  SiNodedotjs,
-} from "react-icons/si";
-import { DiReact } from "react-icons/di";
-import { FaPython, FaLock } from "react-icons/fa";
+import Image from "next/image";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
 
 const Experience = () => {
   const techStack = [
-    { name: "NextJS", icon: <SiNextdotjs className="text-black" /> },
-    { name: "React", icon: <DiReact className="text-[#61DAFB]" /> },
-    { name: "Tailwind", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
-    { name: "NodeJS", icon: <SiNodedotjs className="text-[#339933]" /> },
-    { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
-    { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
-    { name: "GitHub", icon: <SiGithub className="text-[#000000]" /> },
-    { name: "Appwrite", icon: <SiAppwrite className="text-[#F02E65]" /> },
-    { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" /> },
-    { name: "BetterAuth", icon: <FaLock className="text-gray-500" /> },
-    { name: "Vercel", icon: <SiVercel className="text-black" /> },
-    { name: "Cloudflare", icon: <SiCloudflare className="text-[#F38020]" /> },
+    { name: "NextJS", src: "/icons/nextjs.svg" },
+    { name: "React", src: "/icons/react.svg" },
+    { name: "Tailwind", src: "/icons/tailwind.svg" },
+    { name: "NodeJS", src: "/icons/node-js.svg" },
+    { name: "Python", src: "/icons/python.svg" },
+    { name: "MongoDB", src: "/icons/mongodb.svg" },
+    { name: "GitHub", src: "/icons/github.svg" },
+    { name: "Appwrite", src: "/icons/appwrite.svg" },
+    { name: "Firebase", src: "/icons/google-firebase.svg" },
+    { name: "BetterAuth", src: "/icons/better-auth.svg" },
+    { name: "Vercel", src: "/icons/vercel.svg" },
+    { name: "Cloudflare", src: "/icons/cloudflare.svg" },
   ];
 
   const renderSkills = (skills) =>
@@ -48,10 +36,14 @@ const Experience = () => {
       >
         {/* Skill Card */}
         <div className="relative flex flex-col items-center justify-center p-4 h-36 w-36 md:h-40 md:w-40 rounded-2xl bg-[var(--card-bg-color)] border border-[var(--border-color)] shadow-sm ">
-          <div
-            className="text-5xl md:text-6xl mb-4"
-          >
-            {skill.icon}
+          <div className="mb-4">
+            <Image
+              src={skill.src}
+              alt={`${skill.name} Icon`}
+              width={64}
+              height={64}
+              className="w-14 h-14 md:w-16 md:h-16 object-contain select-none"
+            />
           </div>
 
           {/* Skill Name */}

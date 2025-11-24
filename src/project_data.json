@@ -2,7 +2,7 @@
   {
     "name": "totp-manager",
     "title": "TOTP Manager",
-    "img": "project-7.png",
+    "img": "/project/project-7.png",
     "description": "A secure desktop application for managing Time-Based One-Time Passwords (TOTP).",
     "buttons": [
       { "name": "GitHub", "link": "https://github.com/nextsaimon/totp-manager" }
@@ -12,7 +12,7 @@
   {
     "name": "aos-helper",
     "title": "AOS Helper",
-    "img": "project-1.png",
+    "img": "/project/project-1.png",
     "description": "A Visual Studio Code extension to easily animate elements with AOS (Animate On Scroll) library.",
     "buttons": [
       { "name": "GitHub", "link": "https://github.com/nextSaimon/AOS-Helper" },
@@ -26,7 +26,7 @@
   {
     "name": "notes-viewer",
     "title": "Notes-Viewer",
-    "img": "project-5.png",
+    "img": "/project/project-5.png",
     "description": "A simple web application to view and manage notes.",
     "buttons": [
       { "name": "GitHub", "link": "https://github.com/nextSaimon/Notes-Viewer" }
@@ -36,7 +36,7 @@
   {
     "name": "password-combinator",
     "title": "Password Combinator",
-    "img": "project-2.png",
+    "img": "/project/project-2.png",
     "description": "A Python script to generate all possible combinations of passwords from a given set of words or characters.",
     "buttons": [
       {
@@ -49,7 +49,7 @@
   {
     "name": "minecraft-colab-server",
     "title": "Minecraft Colab Server",
-    "img": "project-3.png",
+    "img": "/project/project-3.png",
     "description": "Host a free Minecraft server using Google Colab.",
     "buttons": [
       {
@@ -66,7 +66,7 @@
   {
     "name": "gmail-to-telegram-bot",
     "title": "Gmail to Telegram Bot",
-    "img": "project-4.png",
+    "img": "/project/project-4.png",
     "description": "A Python script that forwards new emails from Gmail to a Telegram chat.",
     "buttons": [
       {
@@ -79,7 +79,7 @@
   {
     "name": "auto-wifi-changer",
     "title": "Auto Wifi Changer",
-    "img": "project-6.png",
+    "img": "/project/project-6.png",
     "description": "A Python script to automatically switch between Wi-Fi networks.",
     "buttons": [
       {
