@@ -18,9 +18,6 @@ const Project = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // No Need for imageMap or projects mapping anymore.
-  // We use projectData directly.
-
   return (
     <div id="projects" className="relative overflow-hidden flex flex-col">
       {/* Section header */}

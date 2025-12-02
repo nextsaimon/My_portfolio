@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
@@ -14,16 +15,6 @@ import "highlight.js/styles/github-dark.css";
 import "highlight.js/styles/github.css";
 
 import projectData from "@/project_data.json";
-
-const imageMap = {
-  "project-1.png": require("@/../public/project-1.png"),
-  "project-2.png": require("@/../public/project-2.png"),
-  "project-3.png": require("@/../public/project-3.png"),
-  "project-4.png": require("@/../public/project-4.png"),
-  "project-5.png": require("@/../public/project-5.png"),
-  "project-6.png": require("@/../public/project-6.png"),
-  "project-7.png": require("@/../public/project-7.png"),
-};
 
 const ProjectPage = () => {
   const { name } = useParams();
@@ -56,14 +47,10 @@ const ProjectPage = () => {
     if (name) {
       const foundProject = projectData.find((p) => p.name === name);
       if (foundProject) {
-        const projectWithImage = {
-          ...foundProject,
-          img: imageMap[foundProject.img] || null,
-        };
-        setProject(projectWithImage);
+        setProject(foundProject);
 
-        if (projectWithImage.readme) {
-          fetch(projectWithImage.readme)
+        if (foundProject.readme) {
+          fetch(foundProject.readme)
             .then((res) => res.text())
             .then((text) => {
               const html = DOMPurify.sanitize(marked.parse(text));
@@ -125,15 +112,17 @@ const ProjectPage = () => {
   return (
     <div className="container mx-0 md:mx-auto px-4 py-8 max-w-[1280px]">
       <div className="flex flex-col lg:flex-row gap-8 md:items-center lg:items-start">
-        {/* Left side info */}
         <div className="md:w-1/4 lg:sticky top-8">
           {project.img && (
             <div>
               <Image
-                src={project.img}
+                src={project.img}                   
                 alt={project.title}
                 className="rounded-lg shadow-lg w-full"
+                width={1200}
+                height={800}
                 placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
                 quality={100}
               />
               <div className="mt-4">
@@ -160,7 +149,6 @@ const ProjectPage = () => {
           )}
         </div>
 
-        {/* README Section */}
         <div className="md:w-3/4">
           {renderedReadme && (
             <div
