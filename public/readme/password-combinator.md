@@ -25,7 +25,7 @@ A script to generate all possible password combinations based on user-defined cr
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/password-combinator.git
+   git clone https://github.com/nextSaimon/password-combinator.git
    cd password-combinator
    python -u main.py
    ```
