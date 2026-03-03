@@ -77,7 +77,7 @@ const Experience = () => {
             <p className="text-lg font-medium text-[var(--secondary-text-color)] mb-2">
               My Tools & Technologies
             </p>
-            <h1 className="text-5xl font-bold">Skills</h1>
+            <h1 className="text-5xl font-bold">Tech Stack</h1>
           </div>
         </FadeContent>
       </AnimatedContent>
