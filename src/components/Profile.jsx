@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import SocialIcons from "./SocialIcons";
-import profile_img from "../../public/profile-pic.jpg";
+import profile_img from "../../public/profile-pic.png";
 import Image from "next/image";
 import AnimatedContent from "@/context/AnimatedContent/AnimatedContent";
 import FadeContent from "@/context/FadeContent/FadeContent";
@@ -41,14 +41,18 @@ const Profile = () => {
             initialOpacity={0}
           >
             <Image
-              className="profile-pic w-[300px] lg:w-[450px]"
+              className="profile-pic w-[300px] lg:w-[450px] border-4 border-[var(--border-color)]"
               src={profile_img}
               alt="Saimon's Profile"
               // width={450} // Default width
               // height={450} // Default height
               placeholder="blur" // Blur effect while loading
               quality={100}
-              style={{ objectFit: "cover", borderRadius: "50%" }} // Optional: rounded shape
+              style={{
+                objectFit: "cover",
+                borderRadius: "50%",
+                
+              }} 
             />
           </FadeContent>
         </AnimatedContent>
